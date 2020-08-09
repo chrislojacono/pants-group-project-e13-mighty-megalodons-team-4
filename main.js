@@ -37,3 +37,17 @@ const shopCardsArray = [
   },
 ];
 
+const renderShopCards = ()=>{
+  let domString = '';
+  for(let i = 0; i < shopCardsArray.length; i++){
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${shopCardsArray.imageUrl}" class="card-img-top" alt="corduroy ">
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray.style}</h3>
+      <p class="card-text">${shopCardsArray.description}</p>
+      <h5 class="card-price">${shopCardsArray.price}</h5>
+    </div>
+  </div>
+  `
+  }
+}
