@@ -50,4 +50,5 @@ const renderShopCards = ()=>{
   </div>
   `
   }
+  printToDom('', domString)
 }
