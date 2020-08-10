@@ -1,0 +1,5 @@
+#shopCardsSection{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
