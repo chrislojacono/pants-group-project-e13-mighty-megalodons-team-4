@@ -23,13 +23,12 @@ const renderNavbar = () => {
 };
 const shopCardsArray = [
   {
-    style: "Real Teal",
-    forWhom: "Men",
-    onSale: false,
-    description:
-      "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
-    imageUrl: "/shopImages/realteal.jpg",
-    price: 60.0,
+    style: "Forester Corduroys",
+    forWhom: "Kids",
+    onSale: true,
+    description: "A overall for the coolest kid on the block",
+    imageUrl: "/shopImages/kidsgreen.jpeg",
+    price: 34.99,
   },
   {
     style: "Shade Of Brown",
@@ -38,24 +37,33 @@ const shopCardsArray = [
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
     imageUrl: "/shopImages/shadeofbrown.jpg",
-    price: 40.0,
+    price: 39.99,
   },
   {
-    style: "The Classic",
-    forWhom: "Men",
+    style: "The Party Pants",
+    forWhom: "Women",
     onSale: false,
     description:
-      "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
-    imageUrl: "/shopImages/classiccorduroy.jpg",
-    price: 70.0,
+      "The ultimate part pants. Instantly become the life of the party with these rockin corduroys",
+    imageUrl: "/shopImages/partypants.jpeg",
+    price: 99.99,
   },
+  {
+  style: "Cowboy's Overall",
+  forWhom: "Men",
+  onSale: true,
+  description:
+    "The rowdiest overalls in all the west. From horseback to stick-ups at the bank, these corduroys will do it all!",
+  imageUrl: "/shopImages/cowboy.jpg",
+  price: 33.99,
+},
   {
     style: "Womens Mid Rise",
     forWhom: "Women",
     onSale: false,
     description: "A figure-balancing shape in soft-yet-substantial corduroy.",
     imageUrl: "/shopImages/wmidrise.jpeg",
-    price: 60.0,
+    price: 65.99,
   },
   {
     style: "The Johna Wayne",
@@ -64,7 +72,7 @@ const shopCardsArray = [
     description:
       "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
     imageUrl: "/shopImages/womensbrown.jpeg",
-    price: 85.0,
+    price: 44.99,
   },
   {
     style: "Wild West Corduroys",
@@ -73,7 +81,7 @@ const shopCardsArray = [
     description:
       "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
     imageUrl: "/shopImages/fittedwomens.jpg",
-    price: 45.0,
+    price: 45.99,
   },
   {
     style: "Root Tootin Roys",
@@ -81,7 +89,32 @@ const shopCardsArray = [
     onSale: false,
     description: "Your favorite Sport Knit Pants in supple knit corduroy.",
     imageUrl: "/shopImages/gold.jpeg",
-    price: 85.0,
+    price: 81.99,
+  },
+  {
+    style: "Oregon Trail Roys",
+    forWhom: "Kids",
+    onSale: false,
+    description: "If these corduroys can survive the oregon trail, then so can you!",
+    imageUrl: "/shopImages/oregontrail.jpg",
+    price: 85.99,
+  },
+  {
+  style: "Navy Cords",
+  forWhom: "Kids",
+  onSale: true,
+  description: "A cool Navy blue, with functional pockets and a style that everyone will enjoy",
+  imageUrl: "/shopImages/navymens.jpeg",
+  price: 25.99,
+},
+  {
+    style: "The Classic",
+    forWhom: "Men",
+    onSale: false,
+    description:
+      "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
+    imageUrl: "/shopImages/classiccorduroy.jpg",
+    price: 69.99,
   },
   {
     style: "Cool Cats",
@@ -89,7 +122,7 @@ const shopCardsArray = [
     onSale: true,
     description: "Corduroys that will make your kids WAY cooler than you",
     imageUrl: "/shopImages/kids2.jpeg",
-    price: 40.0,
+    price: 39.99,
   },
   {
     style: "Cord Shorts",
@@ -97,7 +130,16 @@ const shopCardsArray = [
     onSale: true,
     description: "Corduroy shorts with enough pockets fpr all of your essentials!",
     imageUrl: "/shopImages/shorts.jpeg",
-    price: 65.0,
+    price: 64.99,
+  },
+  {
+    style: "Real Teal",
+    forWhom: "Men",
+    onSale: false,
+    description:
+      "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
+    imageUrl: "/shopImages/realteal.jpg",
+    price: 59.99,
   },
   {
     style: "Overall Cords",
@@ -105,7 +147,7 @@ const shopCardsArray = [
     onSale: false,
     description: "A overall for the coolest kid on the block",
     imageUrl: "/shopImages/kidsoverall.jpeg",
-    price: 85.0,
+    price: 85.99,
   },
 ];
 const buttonEvents = () => {
