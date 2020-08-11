@@ -3,37 +3,6 @@ const printToDom = (divID, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
-const reviewsArray = [
-  {
-    name: "Alexander Solzenezen",
-    product: "classic pants",
-    rating: 5,
-    product: "Corduroys",
-    comment: "I love them.",
-  },
-  {
-    name: "John Steinback",
-    product: "classic pants",
-    rating: 3,
-    product: "Corduroys",
-    comment: "Could've been better.",
-  },
-  {
-    name: "William Faulkner",
-    product: "classic pants",
-    rating: 2,
-    product: "Corduroys",
-    comment: "I would've given three stars but the service wasn't good either.",
-  },
-  {
-    name: "Djuna Barnes",
-    product: "classic pants",
-    rating: 5,
-    product: "Corduroys",
-    comment: "Best I ever got.",
-  },
-];
-
 const renderNavbar = () => {
   domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,26 +109,19 @@ const shopCardsArray = [
   },
 ];
 const buttonEvents = () => {
-  if (document.getElementById("shop")) {
-    renderShopCards();
+  if (document.getElementById('shop')) {
+    renderShopCards()
   }
-  if (document.getElementById("reviews")) {
-    renderShopCards();
+  if (document.getElementById('reviews')) {
+    renderReviews()
   }
-  if (document.getElementById("dropdown")) {
-    document
-      .getElementById("allButton")
-      .addEventListener("click", renderShopCards);
-    document
-      .getElementById("mensButton")
-      .addEventListener("click", renderMensCards);
-    document
-      .getElementById("womensButton")
-      .addEventListener("click", renderWomensCards);
-    document
-      .getElementById("kidsButton")
-      .addEventListener("click", renderKidsCards);
+  if (document.getElementById('dropdown')) {
+    document.getElementById('allButton').addEventListener('click', renderShopCards)
+    document.getElementById('mensButton').addEventListener('click', renderMensCards)
+    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
+    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
+
 };
 
 const renderShopCards = () => {
@@ -180,7 +142,7 @@ const renderShopCards = () => {
 const renderMensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === "Men") {
+    if (shopCardsArray[i].forWhom === 'Men') {
       domString += `<div class="card" style="width: 18rem;">
       <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
       <div class="card-body">
@@ -193,11 +155,12 @@ const renderMensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-};
+
+}
 const renderWomensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === "Women") {
+    if (shopCardsArray[i].forWhom === 'Women') {
       domString += `<div class="card" style="width: 18rem;">
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
@@ -210,11 +173,12 @@ const renderWomensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-};
+
+}
 const renderKidsCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === "Kids") {
+    if (shopCardsArray[i].forWhom === 'Kids') {
       domString += `<div class="card" style="width: 18rem;">
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
@@ -230,7 +194,38 @@ const renderKidsCards = () => {
 
 }
 
+const reviewsArray = [
+  {
+    name: "John Wayne",
+    product: "classic pants",
+    rating: 5,
+    product: "Corduroys",
+    comment: "Hey Pawdna. I love them.",
+    avatar: "10.jpg"
+  },
+  {
+    name: "Gayle Davis",
+    rating: 3,
+    product: "Corduroys",
+    comment: "Could've been better.",
+    avatar: "12.jpg"
+  },
+  {
+    name: "Nell Oday",
+    rating: 5,
+    product: "Corduroys",
+    comment: "Best I ever got.",
+    avatar: "8.jpeg"
+  },
+  {
+    name: "Gabby Hayes",
+    rating: 2,
+    product: "Corduroys",
+    comment: "I would've given three stars but the service wasn't good either.",
+    avatar: "5.jpg"
+  }
 
+];
 
 const renderReviews = () => {
   let domString = "";
@@ -252,9 +247,13 @@ const renderReviews = () => {
   printToDom("reviewsSection", domString);
 };
 
+
+
+
 const init = () => {
   renderNavbar();
   buttonEvents();
+
 };
 
 init();
