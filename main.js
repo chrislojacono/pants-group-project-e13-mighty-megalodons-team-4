@@ -29,7 +29,7 @@ const shopCardsArray = [
     description:
       "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
     imageUrl: "/shopImages/realteal.jpg",
-    price: 60.00
+    price: 60.0,
   },
   {
     style: "Shade Of Brown",
@@ -38,7 +38,7 @@ const shopCardsArray = [
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
     imageUrl: "/shopImages/shadeofbrown.jpg",
-    price: 40.00
+    price: 40.0,
   },
   {
     style: "The Classic",
@@ -47,16 +47,15 @@ const shopCardsArray = [
     description:
       "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
     imageUrl: "/shopImages/classiccorduroy.jpg",
-    price: 70.00
+    price: 70.0,
   },
   {
     style: "Womens Mid Rise",
     forWhom: "Women",
     onSale: false,
-    description:
-      "A figure-balancing shape in soft-yet-substantial corduroy.",
+    description: "A figure-balancing shape in soft-yet-substantial corduroy.",
     imageUrl: "/shopImages/wmidrise.jpeg",
-    price: 60.00
+    price: 60.0,
   },
   {
     style: "The Johna Wayne",
@@ -65,7 +64,7 @@ const shopCardsArray = [
     description:
       "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
     imageUrl: "/shopImages/womensbrown.jpeg",
-    price: 85.00
+    price: 85.0,
   },
   {
     style: "Wild West Corduroys",
@@ -74,16 +73,39 @@ const shopCardsArray = [
     description:
       "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
     imageUrl: "/shopImages/fittedwomens.jpg",
-    price: 45.00
+    price: 45.0,
   },
   {
-    style: "Wild West Corduroys",
+    style: "Root Tootin Roys",
+    forWhom: "Women",
+    onSale: false,
+    description: "Your favorite Sport Knit Pants in supple knit corduroy.",
+    imageUrl: "/shopImages/gold.jpeg",
+    price: 85.0,
+  },
+  {
+    style: "Cool Cats",
+    forWhom: "Kids",
+    onSale: true,
+    description: "Corduroys that will make your kids WAY cooler than you",
+    imageUrl: "/shopImages/kids2.jpeg",
+    price: 40.0,
+  },
+  {
+    style: "Cord Shorts",
     forWhom: "Women",
     onSale: true,
-    description:
-      "Your favorite Sport Knit Pants in supple knit corduroy.",
-    imageUrl: "/shopImages/wsportknit.jpeg",
-    price: 45.00
+    description: "Corduroy shorts with enough pockets fpr all of your essentials!",
+    imageUrl: "/shopImages/shorts.jpeg",
+    price: 65.0,
+  },
+  {
+    style: "Overall Cords",
+    forWhom: "Kids",
+    onSale: false,
+    description: "A overall for the coolest kid on the block",
+    imageUrl: "/shopImages/kidsoverall.jpeg",
+    price: 85.0,
   },
 ];
 const buttonEvents = () => {
@@ -99,10 +121,10 @@ const buttonEvents = () => {
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
-}
+
+};
 
 const renderShopCards = () => {
-
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
@@ -116,7 +138,6 @@ const renderShopCards = () => {
   `;
   }
   printToDom("shopCardsSection", domString);
-
 };
 const renderMensCards = () => {
   let domString = "";
@@ -163,7 +184,7 @@ const renderKidsCards = () => {
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">${shopCardsArray[i].price}</h5>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
     </div>
   </div>
   `;
@@ -223,7 +244,7 @@ const renderReviews = () => {
   </div>
   `;
   }
-  printToDom("reviews", domString);
+  printToDom("reviewsSection", domString);
 };
 
 
