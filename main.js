@@ -42,7 +42,7 @@ const renderNavbar = () => {
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
         <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/shop.html">Shop</a>
+        <a id="shopsAll" class="nav-link" href="/shop.html">Shop</a>
         <a class="nav-link" href="/bios.html">About Us</a>
         <a class="nav-link" href="/reviews.html">Reviews</a>
         <a class="nav-link" href="/order.html">Order</a>
@@ -59,8 +59,8 @@ const shopCardsArray = [
     onSale: false,
     description:
       "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
-    imageUrl: "/images/realteal.jpg",
-    price: "60.00",
+    imageUrl: "/shopImages/realteal.jpg",
+    price: 60.00
   },
   {
     style: "Shade Of Brown",
@@ -68,8 +68,8 @@ const shopCardsArray = [
     onSale: true,
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
-    imageUrl: "/images/shadeofbrown.jpg",
-    price: "40.00",
+    imageUrl: "/shopImages/shadeofbrown.jpg",
+    price: 40.00
   },
   {
     style: "The Classic",
@@ -77,8 +77,8 @@ const shopCardsArray = [
     onSale: false,
     description:
       "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
-    imageUrl: "/images/classiccorduroy.jpg",
-    price: "70.00",
+    imageUrl: "/shopImages/classiccorduroy.jpg",
+    price: 70.00
   },
   {
     style: "Womens Mid Rise",
@@ -86,23 +86,106 @@ const shopCardsArray = [
     onSale: false,
     description:
       "A figure-balancing shape in soft-yet-substantial corduroy.",
-    imageUrl: "/images/wmidrise.jpeg",
-    price: "60.00",
+    imageUrl: "/shopImages/wmidrise.jpeg",
+    price: 60.00
   },
   {
-    style: "Womens Sport Knit",
+    style: "The Johna Wayne",
+    forWhom: "Women",
+    onSale: false,
+    description:
+      "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
+    imageUrl: "/shopImages/womensbrown.jpeg",
+    price: 85.00
+  },
+  {
+    style: "Wild West Corduroys",
+    forWhom: "Women",
+    onSale: true,
+    description:
+      "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
+    imageUrl: "/shopImages/fittedwomens.jpg",
+    price: 45.00
+  },
+  {
+    style: "Wild West Corduroys",
     forWhom: "Women",
     onSale: true,
     description:
       "Your favorite Sport Knit Pants in supple knit corduroy.",
-    imageUrl: "/images/wsportknit.jpeg",
-    price: "45.00",
+    imageUrl: "/shopImages/wsportknit.jpeg",
+    price: 45.00
   },
 ];
+const buttonEvents = ()=> {
+  if(document.getElementById('shop')){
+    renderShopCards()
+  }
+  if(document.getElementById('dropdown')){
+    document.getElementById('allButton').addEventListener('click', renderShopCards)
+   document.getElementById('mensButton').addEventListener('click', renderMensCards)
+   document.getElementById('womensButton').addEventListener('click', renderWomensCards)
+   document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+  }
+}
 
 const renderShopCards = () => {
+  
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray[i].style}</h3>
+      <p class="card-text">${shopCardsArray[i].description}</p>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+    </div>
+  </div>
+  `;
+  }
+  printToDom("shopCardsSection", domString);
+
+};
+const renderMensCards = () => {
+    let domString = "";
+    for (let i = 0; i < shopCardsArray.length; i++) {
+      if(shopCardsArray[i].forWhom === 'Men'){
+      domString += `<div class="card" style="width: 18rem;">
+      <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="card-body">
+        <h3 class="card-title">${shopCardsArray[i].style}</h3>
+        <p class="card-text">${shopCardsArray[i].description}</p>
+        <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      </div>
+    </div>
+    `;
+    }
+    printToDom("shopCardsSection", domString);
+  }
+  
+}
+const renderWomensCards = () => {
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    if(shopCardsArray[i].forWhom === 'Women'){
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray[i].style}</h3>
+      <p class="card-text">${shopCardsArray[i].description}</p>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+    </div>
+  </div>
+  `;
+  }
+  printToDom("shopCardsSection", domString);
+}
+
+}
+const renderKidsCards = () => {
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    if(shopCardsArray[i].forWhom === 'Kids'){
     domString += `<div class="card" style="width: 18rem;">
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
@@ -114,11 +197,14 @@ const renderShopCards = () => {
   `;
   }
   printToDom("shopCardsSection", domString);
-};
+}
+
+}
 
 const init = () => {
   renderNavbar();
-  renderShopCards();
+  
+  buttonEvents();
 };
 
 init();
