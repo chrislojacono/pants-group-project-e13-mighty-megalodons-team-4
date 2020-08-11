@@ -1,5 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 #shopCardsSection{
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+}
+/*ORDER FORM*/ 
+
+#formWrapper {
+    width: 80%;
+    padding: 20px;
 }
