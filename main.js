@@ -86,23 +86,23 @@ const shopCardsArray = [
     price: 45.00
   },
 ];
-const buttonEvents = ()=> {
-  if(document.getElementById('shop')){
+const buttonEvents = () => {
+  if (document.getElementById('shop')) {
     renderShopCards()
   }
-  if(document.getElementById('shop')){
+  if (document.getElementById('reviews')) {
     renderReviews()
   }
-  if(document.getElementById('dropdown')){
+  if (document.getElementById('dropdown')) {
     document.getElementById('allButton').addEventListener('click', renderShopCards)
-   document.getElementById('mensButton').addEventListener('click', renderMensCards)
-   document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-   document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+    document.getElementById('mensButton').addEventListener('click', renderMensCards)
+    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
+    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
 }
 
 const renderShopCards = () => {
-  
+
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
@@ -119,9 +119,9 @@ const renderShopCards = () => {
 
 };
 const renderMensCards = () => {
-    let domString = "";
-    for (let i = 0; i < shopCardsArray.length; i++) {
-      if(shopCardsArray[i].forWhom === 'Men'){
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    if (shopCardsArray[i].forWhom === 'Men') {
       domString += `<div class="card" style="width: 18rem;">
       <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
       <div class="card-body">
@@ -134,13 +134,13 @@ const renderMensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-  
+
 }
 const renderWomensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if(shopCardsArray[i].forWhom === 'Women'){
-    domString += `<div class="card" style="width: 18rem;">
+    if (shopCardsArray[i].forWhom === 'Women') {
+      domString += `<div class="card" style="width: 18rem;">
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -149,16 +149,16 @@ const renderWomensCards = () => {
     </div>
   </div>
   `;
+    }
+    printToDom("shopCardsSection", domString);
   }
-  printToDom("shopCardsSection", domString);
-}
 
 }
 const renderKidsCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if(shopCardsArray[i].forWhom === 'Kids'){
-    domString += `<div class="card" style="width: 18rem;">
+    if (shopCardsArray[i].forWhom === 'Kids') {
+      domString += `<div class="card" style="width: 18rem;">
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -167,9 +167,9 @@ const renderKidsCards = () => {
     </div>
   </div>
   `;
+    }
+    printToDom("shopCardsSection", domString);
   }
-  printToDom("shopCardsSection", domString);
-}
 
 }
 
