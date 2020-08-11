@@ -4,7 +4,7 @@ const printToDom = (divID, textToPrint) => {
 };
 
 const renderNavbar = () => {
-  domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  domString = `<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -110,13 +110,14 @@ const shopCardsArray = [
 ];
 const buttonEvents = () => {
   if (document.getElementById('shop')) {
-    renderShopCards()
+    renderShopCards(shopCardsArray)
+    document.getElementById('searchBarInput').addEventListener('keyup', searchFunction)
   }
   if (document.getElementById('reviews')) {
     renderReviews()
   }
   if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderShopCards)
+    document.getElementById('allButton').addEventListener('click', renderAllCards)
     document.getElementById('mensButton').addEventListener('click', renderMensCards)
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
@@ -124,15 +125,16 @@ const buttonEvents = () => {
 
 };
 
-const renderShopCards = () => {
+const renderShopCards = (array) => {
   let domString = "";
-  for (let i = 0; i < shopCardsArray.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+    <div class="img-container" style="background-image: url(${array[i].imageUrl})">
+    </div>
     <div class="card-body">
-      <h3 class="card-title">${shopCardsArray[i].style}</h3>
-      <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      <h3 class="card-title">${array[i].style}</h3>
+      <p class="card-text">${array[i].description}</p>
+      <h5 class="card-price">$${array[i].price}</h5>
     </div>
   </div>
   `;
@@ -144,7 +146,8 @@ const renderMensCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Men') {
       domString += `<div class="card" style="width: 18rem;">
-      <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
       <div class="card-body">
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
         <p class="card-text">${shopCardsArray[i].description}</p>
@@ -162,7 +165,8 @@ const renderWomensCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Women') {
       domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
@@ -180,7 +184,8 @@ const renderKidsCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Kids') {
       domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
@@ -193,6 +198,22 @@ const renderKidsCards = () => {
   }
 
 }
+const renderAllCards = () => {
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+      domString += `<div class="card" style="width: 18rem;">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray[i].style}</h3>
+      <p class="card-text">${shopCardsArray[i].description}</p>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+    </div>
+  </div>
+  `;
+    }
+    printToDom("shopCardsSection", domString);
+  }
 
 const reviewsArray = [
   {
@@ -246,6 +267,15 @@ const renderReviews = () => {
   }
   printToDom("reviewsSection", domString);
 };
+
+const searchFunction = (e)=>{
+  const searchId = e.target.value.toLowerCase()
+  const filteredPants = shopCardsArray.filter((shopCardsArray) => {
+    return (shopCardsArray.style.toLowerCase().includes(searchId) || shopCardsArray.description.toLowerCase().includes(searchId)
+    )
+  })
+  renderShopCards(filteredPants)
+}
 
 
 
