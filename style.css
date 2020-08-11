@@ -3,6 +3,9 @@
     padding: 0;
 }
 #shopCardsSection{
+=======
+
+#reviewsSection {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
@@ -12,4 +15,18 @@
 #formWrapper {
     width: 80%;
     padding: 20px;
+
+.searchSection{
+    display: flex;
+    flex-direction:column;
+}
+
+.card{
+    margin: 20px;
+    text-align: center;
+}
+.img-container{
+    height: 300px;
+    background-size: cover;
+    background-position: center;
 }
