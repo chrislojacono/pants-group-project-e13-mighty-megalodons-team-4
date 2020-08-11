@@ -143,6 +143,9 @@ const buttonEvents = () => {
   if (document.getElementById("shop")) {
     renderShopCards();
   }
+  if (document.getElementById("reviews")) {
+    renderShopCards();
+  }
   if (document.getElementById("dropdown")) {
     document
       .getElementById("allButton")
@@ -224,43 +227,10 @@ const renderKidsCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-<<<<<<< Updated upstream
-=======
 
 }
 
-const reviewsArray = [
-  {
-    name: "John Wayne",
-    product: "classic pants",
-    rating: 5,
-    product: "Corduroys",
-    comment: "Hey Pawdna. I love them.",
-    avatar: "10.jpg"
-  },
-  {
-    name: "Gayle Davis",
-    rating: 3,
-    product: "Corduroys",
-    comment: "Could've been better.",
-    avatar: "12.jpg"
-  },
-  {
-    name: "Nell Oday",
-    rating: 5,
-    product: "Corduroys",
-    comment: "Best I ever got.",
-    avatar: "8.jpeg"
-  },
-  {
-    name: "Gabby Hayes",
-    rating: 2,
-    product: "Corduroys",
-    comment: "I would've given three stars but the service wasn't good either.",
-    avatar: "5.jpg"
-  }
 
-];
 
 const renderReviews = () => {
   let domString = "";
@@ -280,7 +250,6 @@ const renderReviews = () => {
   `;
   }
   printToDom("reviewsSection", domString);
->>>>>>> Stashed changes
 };
 
 const init = () => {
