@@ -1,31 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-#shopCardsSection{
-=======
-
 #reviewsSection {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
 }
-/*ORDER FORM*/ 
 
-#formWrapper {
-    width: 80%;
-    padding: 20px;
-
-.searchSection{
+.searchSection {
     display: flex;
     flex-direction:column;
 }
 
-.card{
+.card {
     margin: 20px;
     text-align: center;
 }
-.img-container{
+.img-container {
     height: 300px;
     background-size: cover;
     background-position: center;
