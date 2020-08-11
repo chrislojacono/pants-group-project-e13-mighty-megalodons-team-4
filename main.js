@@ -1,6 +1,7 @@
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
+  console.log(selectedDiv);
 };
 
 const reviewsArray = [
@@ -157,6 +158,7 @@ const renderBioCards = () => {
     </div>
   </div>`;
   }
+  
   printToDom("bioCards", domString);
 }
 
