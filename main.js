@@ -5,32 +5,32 @@ const printToDom = (divID, textToPrint) => {
 
 const reviewsArray = [
   {
-    "name": "Alexander Solzenezen",
-    "product": "classic pants",
-    "rating": "5",
-    "product": "Corduroys",
-    "comment": "I love them."
+    name: "Alexander Solzenezen",
+    product: "classic pants",
+    rating: 5,
+    product: "Corduroys",
+    comment: "I love them."
   },
   {
-    "name": "John Steinback",
-    "product": "classic pants",
-    "rating": "3",
-    "product": "Corduroys",
-    "comment": "Could've been better."
+    name: "John Steinback",
+    product: "classic pants",
+    rating: 3,
+    product: "Corduroys",
+    comment: "Could've been better."
   },
   {
-    "name": "William Faulkner",
-    "product": "classic pants",
-    "rating": "2",
-    "product": "Corduroys",
-    "comment": "I would've given three stars but the service wasn't good either."
+    name: "William Faulkner",
+    product: "classic pants",
+    rating: 2,
+    product: "Corduroys",
+    comment: "I would've given three stars but the service wasn't good either."
   },
   {
-    "name": "Djuna Barnes",
-    "product": "classic pants",
-    "rating": "5",
-    "product": "Corduroys",
-    "comment": "Best I ever got."
+    name: "Djuna Barnes",
+    product: "classic pants",
+    rating: 5,
+    product: "Corduroys",
+    comment: "Best I ever got."
   }
 ];
 
