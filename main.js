@@ -143,8 +143,6 @@ const renderReviews = () => {
 
 const init = () => {
   renderNavbar();
-  renderShopCards();
-  renderReviews();
 };
 
 init();
