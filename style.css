@@ -1,4 +1,10 @@
-#shopCardsSection{
+#shopCardsSection {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+#reviewsSection {
     display: flex;
     flex-flow: row wrap;
     text-align: center;

@@ -3,37 +3,6 @@ const printToDom = (divID, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
-const reviewsArray = [
-  {
-    name: "Alexander Solzenezen",
-    product: "classic pants",
-    rating: 5,
-    product: "Corduroys",
-    comment: "I love them."
-  },
-  {
-    name: "John Steinback",
-    product: "classic pants",
-    rating: 3,
-    product: "Corduroys",
-    comment: "Could've been better."
-  },
-  {
-    name: "William Faulkner",
-    product: "classic pants",
-    rating: 2,
-    product: "Corduroys",
-    comment: "I would've given three stars but the service wasn't good either."
-  },
-  {
-    name: "Djuna Barnes",
-    product: "classic pants",
-    rating: 5,
-    product: "Corduroys",
-    comment: "Best I ever got."
-  }
-];
-
 const renderNavbar = () => {
   domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,6 +57,7 @@ const shopCardsArray = [
       "A figure-balancing shape in soft-yet-substantial corduroy.",
     imageUrl: "/shopImages/wmidrise.jpeg",
     price: 60.00
+<<<<<<< HEAD
   },
   {
     style: "The Johna Wayne",
@@ -108,6 +78,28 @@ const shopCardsArray = [
     price: 45.00
   },
   {
+=======
+  },
+  {
+    style: "The Johna Wayne",
+    forWhom: "Women",
+    onSale: false,
+    description:
+      "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
+    imageUrl: "/shopImages/womensbrown.jpeg",
+    price: 85.00
+  },
+  {
+    style: "Wild West Corduroys",
+    forWhom: "Women",
+    onSale: true,
+    description:
+      "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
+    imageUrl: "/shopImages/fittedwomens.jpg",
+    price: 45.00
+  },
+  {
+>>>>>>> master
     style: "Wild West Corduroys",
     forWhom: "Women",
     onSale: true,
@@ -115,6 +107,7 @@ const shopCardsArray = [
       "Your favorite Sport Knit Pants in supple knit corduroy.",
     imageUrl: "/shopImages/wsportknit.jpeg",
     price: 45.00
+<<<<<<< HEAD
   },
 ];
 
@@ -146,8 +139,24 @@ const bioCardArray = [
     title: "Head of Marketing",
     bio:
       "User generated content in real-time will have multiple touchpoints for offshoring."
+=======
+>>>>>>> master
   },
 ];
+const buttonEvents = () => {
+  if (document.getElementById('shop')) {
+    renderShopCards()
+  }
+  if (document.getElementById('reviews')) {
+    renderReviews()
+  }
+  if (document.getElementById('dropdown')) {
+    document.getElementById('allButton').addEventListener('click', renderShopCards)
+    document.getElementById('mensButton').addEventListener('click', renderMensCards)
+    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
+    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+  }
+}
 
 const buttonEvents = ()=> {
   if(document.getElementById('shop')){
@@ -162,7 +171,11 @@ const buttonEvents = ()=> {
 }
 
 const renderShopCards = () => {
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> master
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
@@ -179,9 +192,15 @@ const renderShopCards = () => {
 
 };
 const renderMensCards = () => {
+<<<<<<< HEAD
     let domString = "";
     for (let i = 0; i < shopCardsArray.length; i++) {
       if(shopCardsArray[i].forWhom === 'Men'){
+=======
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    if (shopCardsArray[i].forWhom === 'Men') {
+>>>>>>> master
       domString += `<div class="card" style="width: 18rem;">
       <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
       <div class="card-body">
@@ -194,13 +213,22 @@ const renderMensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> master
 }
 const renderWomensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
+<<<<<<< HEAD
     if(shopCardsArray[i].forWhom === 'Women'){
     domString += `<div class="card" style="width: 18rem;">
+=======
+    if (shopCardsArray[i].forWhom === 'Women') {
+      domString += `<div class="card" style="width: 18rem;">
+>>>>>>> master
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -209,16 +237,27 @@ const renderWomensCards = () => {
     </div>
   </div>
   `;
+<<<<<<< HEAD
   }
   printToDom("shopCardsSection", domString);
 }
+=======
+    }
+    printToDom("shopCardsSection", domString);
+  }
+>>>>>>> master
 
 }
 const renderKidsCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
+<<<<<<< HEAD
     if(shopCardsArray[i].forWhom === 'Kids'){
     domString += `<div class="card" style="width: 18rem;">
+=======
+    if (shopCardsArray[i].forWhom === 'Kids') {
+      domString += `<div class="card" style="width: 18rem;">
+>>>>>>> master
     <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -227,6 +266,7 @@ const renderKidsCards = () => {
     </div>
   </div>
   `;
+<<<<<<< HEAD
   }
   printToDom("shopCardsSection", domString);
 }
@@ -251,6 +291,74 @@ const init = () => {
   renderNavbar();
   
   buttonEvents();
+=======
+    }
+    printToDom("shopCardsSection", domString);
+  }
+
+}
+
+const reviewsArray = [
+  {
+    name: "John Wayne",
+    product: "classic pants",
+    rating: 5,
+    product: "Corduroys",
+    comment: "Hey Pawdna. I love them.",
+    avatar: "10.jpg"
+  },
+  {
+    name: "Gayle Davis",
+    rating: 3,
+    product: "Corduroys",
+    comment: "Could've been better.",
+    avatar: "12.jpg"
+  },
+  {
+    name: "Nell Oday",
+    rating: 5,
+    product: "Corduroys",
+    comment: "Best I ever got.",
+    avatar: "8.jpeg"
+  },
+  {
+    name: "Gabby Hayes",
+    rating: 2,
+    product: "Corduroys",
+    comment: "I would've given three stars but the service wasn't good either.",
+    avatar: "5.jpg"
+  }
+
+];
+
+const renderReviews = () => {
+  let domString = "";
+  for (let i = 0; i < reviewsArray.length; i++) {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
+    <div class="card-body">
+      <h3 class="card-title">${reviewsArray[i].name}</h3>
+      <p class="card-text">${reviewsArray[i].product}</p>
+      <h5 class="card-price">${reviewsArray[i].comment}</h5>
+      <div class="row lead">
+        <div id="stars" class="starrr"></div>
+        You gave a rating of <span id="count">${reviewsArray[i].rating}</span> star(s)
+      </div>
+    </div>
+  </div>
+  `;
+  }
+  printToDom("reviews", domString);
+};
+
+
+
+
+const init = () => {
+  renderNavbar();
+  buttonEvents();
+
+>>>>>>> master
 };
 
 init();
