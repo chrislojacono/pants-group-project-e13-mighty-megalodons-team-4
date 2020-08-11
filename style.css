@@ -1,11 +1,21 @@
-#shopCardsSection {
-    display: flex;
-    flex-flow: row wrap;
-    text-align: center;
-}
 
 #reviewsSection {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+}
+
+.searchSection{
+    display: flex;
+    flex-direction:column;
+}
+
+.card{
+    margin: 20px;
+    text-align: center;
+}
+.img-container{
+    height: 300px;
+    background-size: cover;
+    background-position: center;
 }

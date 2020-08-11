@@ -4,7 +4,7 @@ const printToDom = (divID, textToPrint) => {
 };
 
 const renderNavbar = () => {
-  domString = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  domString = `<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,13 +23,12 @@ const renderNavbar = () => {
 };
 const shopCardsArray = [
   {
-    style: "Real Teal",
-    forWhom: "Men",
-    onSale: false,
-    description:
-      "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
-    imageUrl: "/shopImages/realteal.jpg",
-    price: 60.00
+    style: "Forester Corduroys",
+    forWhom: "Kids",
+    onSale: true,
+    description: "A overall for the coolest kid on the block",
+    imageUrl: "/shopImages/kidsgreen.jpeg",
+    price: 34.99,
   },
   {
     style: "Shade Of Brown",
@@ -38,25 +37,33 @@ const shopCardsArray = [
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
     imageUrl: "/shopImages/shadeofbrown.jpg",
-    price: 40.00
+    price: 39.99,
   },
   {
-    style: "The Classic",
-    forWhom: "Men",
+    style: "The Party Pants",
+    forWhom: "Women",
     onSale: false,
     description:
-      "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
-    imageUrl: "/shopImages/classiccorduroy.jpg",
-    price: 70.00
+      "The ultimate part pants. Instantly become the life of the party with these rockin corduroys",
+    imageUrl: "/shopImages/partypants.jpeg",
+    price: 99.99,
   },
+  {
+  style: "Cowboy's Overall",
+  forWhom: "Men",
+  onSale: true,
+  description:
+    "The rowdiest overalls in all the west. From horseback to stick-ups at the bank, these corduroys will do it all!",
+  imageUrl: "/shopImages/cowboy.jpg",
+  price: 33.99,
+},
   {
     style: "Womens Mid Rise",
     forWhom: "Women",
     onSale: false,
-    description:
-      "A figure-balancing shape in soft-yet-substantial corduroy.",
+    description: "A figure-balancing shape in soft-yet-substantial corduroy.",
     imageUrl: "/shopImages/wmidrise.jpeg",
-    price: 60.00
+    price: 65.99,
   },
   {
     style: "The Johna Wayne",
@@ -65,7 +72,7 @@ const shopCardsArray = [
     description:
       "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
     imageUrl: "/shopImages/womensbrown.jpeg",
-    price: 85.00
+    price: 44.99,
   },
   {
     style: "Wild West Corduroys",
@@ -74,60 +81,107 @@ const shopCardsArray = [
     description:
       "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
     imageUrl: "/shopImages/fittedwomens.jpg",
-    price: 45.00
+    price: 45.99,
   },
   {
-    style: "Wild West Corduroys",
+    style: "Root Tootin Roys",
+    forWhom: "Women",
+    onSale: false,
+    description: "Your favorite Sport Knit Pants in supple knit corduroy.",
+    imageUrl: "/shopImages/gold.jpeg",
+    price: 81.99,
+  },
+  {
+    style: "Oregon Trail Roys",
+    forWhom: "Kids",
+    onSale: false,
+    description: "If these corduroys can survive the oregon trail, then so can you!",
+    imageUrl: "/shopImages/oregontrail.jpg",
+    price: 85.99,
+  },
+  {
+  style: "Navy Cords",
+  forWhom: "Kids",
+  onSale: true,
+  description: "A cool Navy blue, with functional pockets and a style that everyone will enjoy",
+  imageUrl: "/shopImages/navymens.jpeg",
+  price: 25.99,
+},
+  {
+    style: "The Classic",
+    forWhom: "Men",
+    onSale: false,
+    description:
+      "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
+    imageUrl: "/shopImages/classiccorduroy.jpg",
+    price: 69.99,
+  },
+  {
+    style: "Cool Cats",
+    forWhom: "Kids",
+    onSale: true,
+    description: "Corduroys that will make your kids WAY cooler than you",
+    imageUrl: "/shopImages/kids2.jpeg",
+    price: 39.99,
+  },
+  {
+    style: "Cord Shorts",
     forWhom: "Women",
     onSale: true,
+    description: "Corduroy shorts with enough pockets fpr all of your essentials!",
+    imageUrl: "/shopImages/shorts.jpeg",
+    price: 64.99,
+  },
+  {
+    style: "Real Teal",
+    forWhom: "Men",
+    onSale: false,
     description:
-      "Your favorite Sport Knit Pants in supple knit corduroy.",
-    imageUrl: "/shopImages/wsportknit.jpeg",
-    price: 45.00
+      "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
+    imageUrl: "/shopImages/realteal.jpg",
+    price: 59.99,
+  },
+  {
+    style: "Overall Cords",
+    forWhom: "Kids",
+    onSale: false,
+    description: "A overall for the coolest kid on the block",
+    imageUrl: "/shopImages/kidsoverall.jpeg",
+    price: 85.99,
   },
 ];
 const buttonEvents = () => {
   if (document.getElementById('shop')) {
-    renderShopCards()
+    renderShopCards(shopCardsArray)
+    document.getElementById('searchBarInput').addEventListener('keyup', searchFunction)
   }
   if (document.getElementById('reviews')) {
     renderReviews()
   }
   if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderShopCards)
+    document.getElementById('allButton').addEventListener('click', renderAllCards)
     document.getElementById('mensButton').addEventListener('click', renderMensCards)
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
-}
 
-const buttonEvents = ()=> {
-  if(document.getElementById('shop')){
-    renderShopCards()
-  }
-  if(document.getElementById('dropdown')){
-    document.getElementById('allButton').addEventListener('click', renderShopCards)
-   document.getElementById('mensButton').addEventListener('click', renderMensCards)
-   document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-   document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
-  }
-}
+};
 
-const renderShopCards = () => {
+const renderShopCards = (array) => {
   let domString = "";
-  for (let i = 0; i < shopCardsArray.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+    <div class="img-container" style="background-image: url(${array[i].imageUrl})">
+    </div>
     <div class="card-body">
-      <h3 class="card-title">${shopCardsArray[i].style}</h3>
-      <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      <h3 class="card-title">${array[i].style}</h3>
+      <p class="card-text">${array[i].description}</p>
+      <h5 class="card-price">$${array[i].price}</h5>
     </div>
   </div>
   `;
   }
   printToDom("shopCardsSection", domString);
-
 };
 const renderMensCards = () => {
     let domString = "";
@@ -137,7 +191,8 @@ const renderMensCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Men') {
       domString += `<div class="card" style="width: 18rem;">
-      <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
       <div class="card-body">
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
         <p class="card-text">${shopCardsArray[i].description}</p>
@@ -154,7 +209,8 @@ const renderWomensCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Women') {
       domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
@@ -172,11 +228,12 @@ const renderKidsCards = () => {
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === 'Kids') {
       domString += `<div class="card" style="width: 18rem;">
-    <img src="${shopCardsArray[i].imageUrl}" class="card-img-top" alt="corduroy ">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">${shopCardsArray[i].price}</h5>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
     </div>
   </div>
   `;
@@ -185,6 +242,22 @@ const renderKidsCards = () => {
   }
 
 }
+const renderAllCards = () => {
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+      domString += `<div class="card" style="width: 18rem;">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+      </div>
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray[i].style}</h3>
+      <p class="card-text">${shopCardsArray[i].description}</p>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+    </div>
+  </div>
+  `;
+    }
+    printToDom("shopCardsSection", domString);
+  }
 
 const reviewsArray = [
   {
@@ -236,8 +309,17 @@ const renderReviews = () => {
   </div>
   `;
   }
-  printToDom("reviews", domString);
+  printToDom("reviewsSection", domString);
 };
+
+const searchFunction = (e)=>{
+  const searchId = e.target.value.toLowerCase()
+  const filteredPants = shopCardsArray.filter((shopCardsArray) => {
+    return (shopCardsArray.style.toLowerCase().includes(searchId) || shopCardsArray.description.toLowerCase().includes(searchId)
+    )
+  })
+  renderShopCards(filteredPants)
+}
 
 
 
