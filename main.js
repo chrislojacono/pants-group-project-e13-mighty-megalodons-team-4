@@ -53,8 +53,7 @@ const shopCardsArray = [
     style: "Womens Mid Rise",
     forWhom: "Women",
     onSale: false,
-    description:
-      "A figure-balancing shape in soft-yet-substantial corduroy.",
+    description: "A figure-balancing shape in soft-yet-substantial corduroy.",
     imageUrl: "/images/wmidrise.jpeg",
     price: "60.00",
   },
@@ -62,10 +61,40 @@ const shopCardsArray = [
     style: "Womens Sport Knit",
     forWhom: "Women",
     onSale: true,
-    description:
-      "Your favorite Sport Knit Pants in supple knit corduroy.",
+    description: "Your favorite Sport Knit Pants in supple knit corduroy.",
     imageUrl: "/images/wsportknit.jpeg",
     price: "45.00",
+  },
+];
+
+const bioCardArray = [
+  {
+    photo: "/images/JohnWayne.jpg",
+    name: "Captain Yeehaw",
+    title: "Captain Corduroy",
+    bio:
+      "Leverage agile frameworks to provide a robust synopsis for high level overviews."
+  },
+  {
+    photo: "/images/ClintEastwood.jpg",
+    name: "Corduroy Chris",
+    title: "Chief Corduroy Officer",
+    bio:
+      "Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."
+  },
+  {
+    photo: "/images/ChuckNorris.png",
+    name: "Rootin Tootin Ralph",
+    title: "Security",
+    bio:
+      "Bring to the table win-win survival strategies to ensure proactive domination."
+  },
+  {
+    photo: "/images/hobbyhorse.jpg",
+    name: "Sammy Sheriff",
+    title: "Head of Marketing",
+    bio:
+      "User generated content in real-time will have multiple touchpoints for offshoring."
   },
 ];
 
@@ -85,9 +114,25 @@ const renderShopCards = () => {
   printToDom("shopCardsSection", domString);
 };
 
+const renderBioCards = () => {
+  let domString = "";
+  for (let i = 0; i < bioCardArray.length; i++) {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${bioCardArray[i].photo}" class="card-img-top" alt="cowboy">
+    <div class="card-body">
+      <h4 class="card-title">${bioCardArray[i].name}</h4>
+      <h6 class="card-title">${bioCardArray[i].title}</h6>
+      <p class="card-text">${bioCardArray[i].bio}</p>
+    </div>
+  </div>`;
+  }
+  printToDom("bioCards", domString);
+}
+
 const init = () => {
   renderNavbar();
   renderShopCards();
+  renderBioCards();
 };
 
 init();
