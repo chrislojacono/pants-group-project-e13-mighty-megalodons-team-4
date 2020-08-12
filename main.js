@@ -191,7 +191,7 @@ const buttonEvents = () => {
     renderReviews()
   }
   if (document.getElementById('bioPage')){
-    renderBiocards()
+    renderBioCards()
   }
   if (document.getElementById('dropdown')) {
     document.getElementById('allButton').addEventListener('click', renderAllCards)
