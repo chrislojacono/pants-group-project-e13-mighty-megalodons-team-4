@@ -1,10 +1,11 @@
+
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
 };
 
 const renderNavbar = () => {
-  domString = `<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+  let domString = `<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,7 +27,7 @@ const shopCardsArray = [
     style: "Forester Corduroys",
     forWhom: "Kids",
     onSale: true,
-    description: "A overall for the coolest kid on the block",
+    description: "An overall for the coolest kid on the block",
     imageUrl: "/shopImages/kidsgreen.jpeg",
     price: 34.99,
   },
@@ -44,24 +45,25 @@ const shopCardsArray = [
     forWhom: "Women",
     onSale: false,
     description:
-      "The ultimate part pants. Instantly become the life of the party with these rockin corduroys",
+      "The ultimate party pants. Instantly become the life of the party with these rockin corduroys",
     imageUrl: "/shopImages/partypants.jpeg",
     price: 99.99,
   },
   {
-  style: "Cowboy's Overall",
-  forWhom: "Men",
-  onSale: true,
-  description:
-    "The rowdiest overalls in all the west. From horseback to stick-ups at the bank, these corduroys will do it all!",
-  imageUrl: "/shopImages/cowboy.jpg",
-  price: 33.99,
-},
+    style: "Cowboy's Overall",
+    forWhom: "Men",
+    onSale: true,
+    description:
+      "The rowdiest overalls in all the west. From horseback to stick-ups at the bank, these corduroys will do it all!",
+    imageUrl: "/shopImages/cowboy.jpg",
+    price: 33.99,
+  },
   {
     style: "Womens Mid Rise",
     forWhom: "Women",
     onSale: false,
-    description: "A figure-balancing shape in soft-yet-substantial corduroy.",
+    description:
+      "A figure-balancing shape in soft-yet-substantial corduroy. Perfect for anyone",
     imageUrl: "/shopImages/wmidrise.jpeg",
     price: 65.99,
   },
@@ -79,7 +81,7 @@ const shopCardsArray = [
     forWhom: "Women",
     onSale: true,
     description:
-      "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs.",
+      "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs. DOn't miss out!",
     imageUrl: "/shopImages/fittedwomens.jpg",
     price: 45.99,
   },
@@ -87,7 +89,8 @@ const shopCardsArray = [
     style: "Root Tootin Roys",
     forWhom: "Women",
     onSale: false,
-    description: "Your favorite Sport Knit Pants in supple knit corduroy.",
+    description:
+      "Your favorite Sport Knit Pants in supple knit corduroy. Comfortable and cool.",
     imageUrl: "/shopImages/gold.jpeg",
     price: 81.99,
   },
@@ -95,18 +98,20 @@ const shopCardsArray = [
     style: "Oregon Trail Roys",
     forWhom: "Kids",
     onSale: false,
-    description: "If these corduroys can survive the oregon trail, then so can you!",
+    description:
+      "If these corduroys can survive the oregon trail, then so can you!",
     imageUrl: "/shopImages/oregontrail.jpg",
     price: 85.99,
   },
   {
-  style: "Navy Cords",
-  forWhom: "Kids",
-  onSale: true,
-  description: "A cool Navy blue, with functional pockets and a style that everyone will enjoy",
-  imageUrl: "/shopImages/navymens.jpeg",
-  price: 25.99,
-},
+    style: "Navy Cords",
+    forWhom: "Kids",
+    onSale: true,
+    description:
+      "A cool Navy blue, with functional pockets and a style that everyone will enjoy",
+    imageUrl: "/shopImages/navymens.jpeg",
+    price: 25.99,
+  },
   {
     style: "The Classic",
     forWhom: "Men",
@@ -120,7 +125,8 @@ const shopCardsArray = [
     style: "Cool Cats",
     forWhom: "Kids",
     onSale: true,
-    description: "Corduroys that will make your kids WAY cooler than you",
+    description:
+      "Corduroys that will make your kids WAY cooler than you. You have been warned.",
     imageUrl: "/shopImages/kids2.jpeg",
     price: 39.99,
   },
@@ -128,7 +134,8 @@ const shopCardsArray = [
     style: "Cord Shorts",
     forWhom: "Women",
     onSale: true,
-    description: "Corduroy shorts with enough pockets fpr all of your essentials!",
+    description:
+      "Corduroy shorts with enough pockets fpr all of your essentials!",
     imageUrl: "/shopImages/shorts.jpeg",
     price: 64.99,
   },
@@ -145,26 +152,35 @@ const shopCardsArray = [
     style: "Overall Cords",
     forWhom: "Kids",
     onSale: false,
-    description: "A overall for the coolest kid on the block",
+    description: "An overall for the coolest kid on the block",
     imageUrl: "/shopImages/kidsoverall.jpeg",
     price: 85.99,
   },
 ];
 const buttonEvents = () => {
-  if (document.getElementById('shop')) {
-    renderShopCards(shopCardsArray)
-    document.getElementById('searchBarInput').addEventListener('keyup', searchFunction)
+  if (document.getElementById("shop")) {
+    renderShopCards(shopCardsArray);
+    document
+      .getElementById("searchBarInput")
+      .addEventListener("keyup", searchFunction);
   }
-  if (document.getElementById('reviews')) {
-    renderReviews()
+  if (document.getElementById("reviews")) {
+    renderReviews();
   }
-  if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderAllCards)
-    document.getElementById('mensButton').addEventListener('click', renderMensCards)
-    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+  if (document.getElementById("dropdown")) {
+    document
+      .getElementById("allButton")
+      .addEventListener("click", renderAllCards);
+    document
+      .getElementById("mensButton")
+      .addEventListener("click", renderMensCards);
+    document
+      .getElementById("womensButton")
+      .addEventListener("click", renderWomensCards);
+    document
+      .getElementById("kidsButton")
+      .addEventListener("click", renderKidsCards);
   }
-
 };
 
 const renderShopCards = (array) => {
@@ -186,7 +202,7 @@ const renderShopCards = (array) => {
 const renderMensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === 'Men') {
+    if (shopCardsArray[i].forWhom === "Men") {
       domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
@@ -200,12 +216,11 @@ const renderMensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-
-}
+};
 const renderWomensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === 'Women') {
+    if (shopCardsArray[i].forWhom === "Women") {
       domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
@@ -219,12 +234,11 @@ const renderWomensCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-
-}
+};
 const renderKidsCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    if (shopCardsArray[i].forWhom === 'Kids') {
+    if (shopCardsArray[i].forWhom === "Kids") {
       domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
@@ -238,12 +252,11 @@ const renderKidsCards = () => {
     }
     printToDom("shopCardsSection", domString);
   }
-
-}
+};
 const renderAllCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-      domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
     <div class="card-body">
@@ -253,9 +266,9 @@ const renderAllCards = () => {
     </div>
   </div>
   `;
-    }
-    printToDom("shopCardsSection", domString);
   }
+  printToDom("shopCardsSection", domString);
+};
 
 const reviewsArray = [
   {
@@ -264,30 +277,29 @@ const reviewsArray = [
     rating: 5,
     product: "Corduroys",
     comment: "Hey Pawdna. I love them.",
-    avatar: "10.jpg"
+    avatar: "10.jpg",
   },
   {
     name: "Gayle Davis",
     rating: 3,
     product: "Corduroys",
     comment: "Could've been better.",
-    avatar: "12.jpg"
+    avatar: "12.jpg",
   },
   {
     name: "Nell Oday",
     rating: 5,
     product: "Corduroys",
     comment: "Best I ever got.",
-    avatar: "8.jpeg"
+    avatar: "8.jpeg",
   },
   {
     name: "Gabby Hayes",
     rating: 2,
     product: "Corduroys",
     comment: "I would've given three stars but the service wasn't good either.",
-    avatar: "5.jpg"
-  }
-
+    avatar: "5.jpg",
+  },
 ];
 
 const renderReviews = () => {
@@ -310,22 +322,20 @@ const renderReviews = () => {
   printToDom("reviewsSection", domString);
 };
 
-const searchFunction = (e)=>{
-  const searchId = e.target.value.toLowerCase()
+const searchFunction = (e) => {
+  const searchId = e.target.value.toLowerCase();
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
-    return (shopCardsArray.style.toLowerCase().includes(searchId) || shopCardsArray.description.toLowerCase().includes(searchId)
-    )
-  })
-  renderShopCards(filteredPants)
-}
-
-
-
+    return (
+      shopCardsArray.style.toLowerCase().includes(searchId) ||
+      shopCardsArray.description.toLowerCase().includes(searchId)
+    );
+  });
+  renderShopCards(filteredPants);
+};
 
 const init = () => {
   renderNavbar();
   buttonEvents();
-
 };
 
 init();
