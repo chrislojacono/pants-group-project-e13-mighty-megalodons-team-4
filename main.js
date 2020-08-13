@@ -1,4 +1,4 @@
-
+'use strict;'
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
@@ -163,6 +163,12 @@ const buttonEvents = () => {
     document
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
+    document
+      .getElementById("addCardToShopButton")
+      .addEventListener("click", captureNewProduct);
+      document
+      .getElementById("addCardToShopButton")
+      .addEventListener("click", renderShopCardsOnSubmit);
   }
   if (document.getElementById("reviews")) {
     renderReviews();
@@ -198,6 +204,24 @@ const renderShopCards = (array) => {
   `;
   }
   printToDom("shopCardsSection", domString);
+  
+};
+const renderShopCardsOnSubmit = () => {
+  let domString = "";
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    domString += `<div class="card" style="width: 18rem;">
+    <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">${shopCardsArray[i].style}</h3>
+      <p class="card-text">${shopCardsArray[i].description}</p>
+      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+    </div>
+  </div>
+  `;
+  }
+  printToDom("shopCardsSection", domString);
+  
 };
 const renderMensCards = () => {
   let domString = "";
@@ -331,6 +355,26 @@ const searchFunction = (e) => {
     );
   });
   renderShopCards(filteredPants);
+};
+const captureNewProduct = (e) => {
+  let buttonId = e.target.id;
+  if (buttonId === "addCardToShopButton") {
+    const pantsStyle = document.querySelector("#styleInput").value;
+    const forWhomInput = document.querySelector("#forWhomInfo").value;
+    const priceInput = document.querySelector("#priceInfo").value;
+    const imageInput = document.querySelector("#imageAddress").value;
+    const descriptionInput1 = document.querySelector("#descriptionInput").value;
+    let newCardObject = {
+      style: pantsStyle,
+      forWhom: forWhomInput,
+      onSale: false,
+      description: descriptionInput1,
+      imageUrl: imageInput,
+      price: priceInput,
+    };
+    shopCardsArray.push(newCardObject);
+  }
+ 
 };
 
 const init = () => {
