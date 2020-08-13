@@ -52,3 +52,7 @@ html, body {
 .shop-footer{
     padding-top: 20px;
 }
+
+#formWrapper{
+    min-height: 100%;
+}
