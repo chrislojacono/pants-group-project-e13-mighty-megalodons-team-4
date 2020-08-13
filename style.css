@@ -1,3 +1,12 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+.review-wrapper{
+    min-height: 100%;
+}
+
 #reviewsSection {
     display: flex;
     flex-flow: row wrap;
@@ -9,6 +18,10 @@
     flex-direction:column;
 }
 
+#shopCardsSection{
+    margin-bottom: 20px;
+}
+
 .card {
     margin: 20px;
     text-align: center;
@@ -17,4 +30,25 @@
     height: 300px;
     background-size: cover;
     background-position: center;
+}
+
+#bioCards {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.bio-wrapper{
+    min-height: 100%;
+}
+
+#footer{
+    height: 50px;
+    margin-top: -50px;
+}
+
+.shop-footer{
+    padding-top: 20px;
 }

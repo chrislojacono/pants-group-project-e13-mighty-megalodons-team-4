@@ -21,6 +21,19 @@ const renderNavbar = () => {
   </nav>`;
   printToDom("navbar", domString);
 };
+
+const renderFooter = () => {
+  domString = `<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
+  </form>
+</nav>`;
+  printToDom("footer", domString);
+}
+
+
+
 const shopCardsArray = [
   {
     style: "Forester Corduroys",
@@ -199,8 +212,18 @@ const buttonEvents = () => {
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
-
+  if (document.getElementById('email')) {
+   document.getElementById("footer").addEventListener("click", alertUser)
 };
+}
+
+const alertUser = (e) => {
+  const buttonType = e.target.type;
+
+  if (buttonType === "submit") {
+    alert("Thank you for subscribing")
+  }
+}
 
 const renderShopCards = (array) => {
   let domString = "";
@@ -374,6 +397,7 @@ const searchFunction = (e)=>{
 
 const init = () => {
   renderNavbar();
+  renderFooter();
   buttonEvents();
 
 };
