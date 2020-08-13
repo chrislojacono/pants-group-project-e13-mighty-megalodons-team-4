@@ -22,6 +22,19 @@ const renderNavbar = () => {
   </nav>`;
   printToDom("navbar", domString);
 };
+
+const renderFooter = () => {
+  domString = `<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
+  </form>
+</nav>`;
+  printToDom("footer", domString);
+}
+
+
+
 const shopCardsArray = [
   {
     style: "Forester Corduroys",
@@ -157,6 +170,38 @@ const shopCardsArray = [
     price: 85.99,
   },
 ];
+
+const bioCardArray = [
+  {
+    photo: "/images/JohnWayne.jpg",
+    name: "Captain Yeehaw",
+    title: "Captain Corduroy",
+    bio:
+      "Leverage agile frameworks to provide a robust synopsis for high level overviews.",
+  },
+  {
+    photo: "/images/ClintEastwood.jpg",
+    name: "Corduroy Chris",
+    title: "Chief Corduroy Officer",
+    bio:
+      "Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+  },
+  {
+    photo: "/images/ChuckNorris.png",
+    name: "Rootin Tootin Ralph",
+    title: "Security",
+    bio:
+      "Bring to the table win-win survival strategies to ensure proactive domination.",
+  },
+  {
+    photo: "/images/hobbyhorse.jpg",
+    name: "Sammy Sheriff",
+    title: "Head of Marketing",
+    bio:
+      "User generated content in real-time will have multiple touchpoints for offshoring.",
+  },
+];
+
 const buttonEvents = () => {
   if (document.getElementById("shop")) {
     renderShopCards(shopCardsArray);
@@ -173,21 +218,27 @@ const buttonEvents = () => {
   if (document.getElementById("reviews")) {
     renderReviews();
   }
-  if (document.getElementById("dropdown")) {
-    document
-      .getElementById("allButton")
-      .addEventListener("click", renderAllCards);
-    document
-      .getElementById("mensButton")
-      .addEventListener("click", renderMensCards);
-    document
-      .getElementById("womensButton")
-      .addEventListener("click", renderWomensCards);
-    document
-      .getElementById("kidsButton")
-      .addEventListener("click", renderKidsCards);
+  if (document.getElementById('bioPage')){
+    renderBioCards()
   }
+  if (document.getElementById('dropdown')) {
+    document.getElementById('allButton').addEventListener('click', renderAllCards)
+    document.getElementById('mensButton').addEventListener('click', renderMensCards)
+    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
+    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+  }
+  if (document.getElementById('email')) {
+   document.getElementById("footer").addEventListener("click", alertUser)
 };
+}
+
+const alertUser = (e) => {
+  const buttonType = e.target.type;
+
+  if (buttonType === "submit") {
+    alert("Thank you for subscribing")
+  }
+}
 
 const renderShopCards = (array) => {
   let domString = "";
@@ -224,6 +275,7 @@ const renderShopCardsOnSubmit = () => {
   
 };
 const renderMensCards = () => {
+ 
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Men") {
@@ -346,8 +398,23 @@ const renderReviews = () => {
   printToDom("reviewsSection", domString);
 };
 
-const searchFunction = (e) => {
-  const searchId = e.target.value.toLowerCase();
+const renderBioCards = () => {
+  let domString = "";
+  for (let i = 0; i < bioCardArray.length; i++) {
+    domString += `<div class="card" style="width: 18rem;">
+    <img src="${bioCardArray[i].photo}" class="card-img-top" alt="cowboy">
+    <div class="card-body">
+      <h4 class="card-title">${bioCardArray[i].name}</h4>
+      <h6 class="card-title">${bioCardArray[i].title}</h6>
+      <p class="card-text">${bioCardArray[i].bio}</p>
+    </div>
+  </div>`;
+  }
+  printToDom("bioCards", domString);
+};
+
+const searchFunction = (e)=>{
+  const searchId = e.target.value.toLowerCase()
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
     return (
       shopCardsArray.style.toLowerCase().includes(searchId) ||
@@ -379,6 +446,7 @@ const captureNewProduct = (e) => {
 
 const init = () => {
   renderNavbar();
+  renderFooter();
   buttonEvents();
 };
 

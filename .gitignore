@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+=======
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+const shopCards = [
+  {
+    style: "Real Teal",
+    forWhom: "Men",
+    onSale: false,
+    description:
+      "DESIGNED WITH 5-POCKET DENIM STYLING, DETAILS INCLUDE A ZIP FLY WITH METAL BUTTON CLOSURE, COIN POCKET AT THE LEFT HIP AND RVCA METAL RIVETS AND THE POCKETS.",
+    imageUrl: "/images/realteal.jpg",
+    price: "60.00",
+  },
+];
+
+main_REMOTE_796.js
+main_REMOTE_796.js.swp
+main.js.swp
+>>>>>>> master
