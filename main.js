@@ -70,10 +70,10 @@ const renderShopFooter = () => {
       </div>
       <div class="modal-footer">					
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button id="addCardToShopButton"type="submit" class="btn btn-success">Submit</button> 
+        <button id="addCardToShopButton" class="btn btn-success" data-dismiss="modal">Add to Shop</button> 
       </div>
-  </form>
   </div>
+  </form>
 </div>
 </div>
 </nav>`;
@@ -256,10 +256,10 @@ const buttonEvents = () => {
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
     document
-      .getElementById("addCardToShopButton")
+      .getElementById("shopFooterInput")
       .addEventListener("click", captureNewProduct);
       document
-      .getElementById("addCardToShopButton")
+      .getElementById("shopFooterInput")
       .addEventListener("click", renderShopCardsOnSubmit);
       document.getElementById("shopFooterInput").addEventListener("click", alertUser)
       
@@ -293,9 +293,9 @@ const buttonEvents = () => {
 }
 
 const alertUser = (e) => {
-  const buttonType = e.target.type;
+  const buttonType = e.target.id;
   let emailInput1 = document.getElementById('emailInput').value;
-  if(buttonType === 'submit'){
+  if(buttonType === 'email'){
   if (emailInput1 === ''){
       alert("Please enter an E-mail!");
       
@@ -491,6 +491,7 @@ const searchFunction = (e)=>{
   renderShopCards(filteredPants);
 };
 const captureNewProduct = (e) => {
+  
   let buttonId = e.target.id;
   if (buttonId === "addCardToShopButton") {
     const pantsStyle = document.querySelector("#styleInput").value;
