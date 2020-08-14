@@ -219,7 +219,7 @@ const shopCardsArray = [
 
 const bioCardArray = [
   {
-    photo: "/images/JohnWayne.jpg",
+    photo: "/images/Dalton_Wilcox.jpeg",
     name: "Captain Yeehaw",
     title: "Captain Corduroy",
     bio:
