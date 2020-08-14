@@ -24,15 +24,61 @@ const renderNavbar = () => {
 };
 
 const renderFooter = () => {
-  domString = `<nav class="navbar navbar-light bg-light">
+  let domString = `<nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
+    <input id="emailInput" class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
   </form>
 </nav>`;
-  printToDom("footer", domString);
+  printToDom("footerInput", domString);
 }
-
+const renderShopFooter = () => {
+  let domString = `<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+  <input id="emailInput" class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
+  </form>
+  <div id="contact"><button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#contact-modal">Add Your Corduroys To the Shop!</button></div>
+  <div id="contact-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <a class="close" data-dismiss="modal">×</a>
+      <h3>Corduroy Info</h3>
+    </div>
+  <form id="contactForm" name="contact" role="form">
+    <div class="modal-body">				
+      <div class="form-group">
+        <label for="name">Style of pants</label>
+        <input id="styleInput" type="text" name="style" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Mens/Womens/Kids</label>
+        <input id="forWhomInfo" type="text" name="mens/womens" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="message">Price(Just enter a number value)</label>
+        <input id="priceInfo" type="text" name="price" class="form-control">			
+      </div>
+      <div class="form-group">
+        <label for="message">Copy Image Address</label>
+        <input id="imageAddress" type="text" name="url" class="form-control">			
+      </div>
+      <div class="form-group">
+        <label for="message">Description</label>
+        <input id="descriptionInput" type="text" name="description" class="form-control">			
+      </div>
+      <div class="modal-footer">					
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="addCardToShopButton"type="submit" class="btn btn-success">Submit</button> 
+      </div>
+  </form>
+  </div>
+</div>
+</div>
+</nav>`;
+  printToDom("shopFooterInput", domString);
+}
 
 
 const shopCardsArray = [
@@ -205,6 +251,7 @@ const bioCardArray = [
 const buttonEvents = () => {
   if (document.getElementById("shop")) {
     renderShopCards(shopCardsArray);
+    renderShopFooter();
     document
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
@@ -214,12 +261,22 @@ const buttonEvents = () => {
       document
       .getElementById("addCardToShopButton")
       .addEventListener("click", renderShopCardsOnSubmit);
+      document.getElementById("shopFooterInput").addEventListener("click", alertUser)
+      
   }
   if (document.getElementById("reviews")) {
     renderReviews();
+    renderFooter();
+    document.getElementById("footerInput").addEventListener("click", alertUser)
   }
   if (document.getElementById('bioPage')){
     renderBioCards()
+    renderFooter();
+    document.getElementById("footerInput").addEventListener("click", alertUser)
+  }
+  if (document.getElementById('homePage')){
+    renderFooter()
+    document.getElementById("footerInput").addEventListener("click", alertUser)
   }
   if (document.getElementById('dropdown')) {
     document.getElementById('allButton').addEventListener('click', renderAllCards)
@@ -227,18 +284,28 @@ const buttonEvents = () => {
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
-  if (document.getElementById('email')) {
-   document.getElementById("footer").addEventListener("click", alertUser)
-};
+  if(document.getElementById('orderPage')){
+    renderFooter();
+    document.getElementById("footerInput").addEventListener("click", alertUser)
+  }
+ 
+  
 }
 
 const alertUser = (e) => {
   const buttonType = e.target.type;
-
-  if (buttonType === "submit") {
+  let emailInput1 = document.getElementById('emailInput').value;
+  if(buttonType === 'submit'){
+  if (emailInput1 === ''){
+      alert("Please enter an E-mail!");
+      
+  }
+  else {
     alert("Thank you for subscribing")
   }
 }
+}
+
 
 const renderShopCards = (array) => {
   let domString = "";
@@ -446,7 +513,7 @@ const captureNewProduct = (e) => {
 
 const init = () => {
   renderNavbar();
-  renderFooter();
+  
   buttonEvents();
 };
 

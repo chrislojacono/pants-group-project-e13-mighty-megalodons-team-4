@@ -49,9 +49,11 @@ html, body {
     min-height: 100%;
 }
 
-#footer{
-    height: 50px;
-    margin-top: -50px;
+#footerInput{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
 }
 
 .shop-footer{
