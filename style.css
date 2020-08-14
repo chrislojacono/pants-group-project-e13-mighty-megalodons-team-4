@@ -32,6 +32,11 @@ html, body {
     background-position: center;
 }
 
+#bioWelcome{
+    text-align: center;
+    padding-top: 20px;
+}
+
 #bioCards {
     display: flex;
     flex-flow: row wrap;
