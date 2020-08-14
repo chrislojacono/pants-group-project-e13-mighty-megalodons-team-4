@@ -24,12 +24,17 @@ html, body {
 
 .card {
     margin: 20px;
+    
     text-align: center;
 }
 .img-container {
-    height: 300px;
+    height:300px;
     background-size: cover;
     background-position: center;
+}
+#searchBarInput{
+    width: 28%;
+    margin: 10px;
 }
 
 #bioWelcome{
@@ -49,9 +54,11 @@ html, body {
     min-height: 100%;
 }
 
-#footer{
-    height: 50px;
-    margin-top: -50px;
+#footerInput{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
 }
 
 .shop-footer{
