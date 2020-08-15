@@ -54,9 +54,9 @@
           </div>
           <div class="form-group col-md-2">
             <label for="validationDefault08">State</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+            <select class="custom-select" id="selectState" aria-describedby="validationServer04Feedback" required>
               <option selected disabled value="">Choose...</option>
-              <option>...</option>
+              <option id="option"></option>
             </select>
           </div>
         </div>
@@ -80,9 +80,8 @@
         <div class="form-row">
           <div class="form-group col-md-2">
             <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+            <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
               <option selected disabled value="">Choose...</option>
-              <option>...</option>
             </select>
           </div>
           <div class="form-group col-md-2">
@@ -187,7 +186,7 @@
         </div> -->
       </form>
       <div id="orderButtons">
-        <button type="button" class="btn btn-primary" id="calculateTotal">Calculate Order Total</button>
+        <button type="button" class="btn btn-primary" id="calculateButton">Calculate Order Total</button>
         <div id="submitButton">
           <button type="button" class="btn btn-primary">Submit Order</button>
       </div>
