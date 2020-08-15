@@ -333,6 +333,7 @@ const reviewsForm = () => {
   <div class="form-check">
   ${avatarInputs}
   </div>
+  
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
