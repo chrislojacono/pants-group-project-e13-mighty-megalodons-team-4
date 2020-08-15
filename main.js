@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
@@ -84,7 +84,7 @@ const shopCardsArray = [
   {
     style: "Forester Corduroys",
     forWhom: "Kids",
-    onSale: true,
+    onSale: false,
     description: "An overall for the coolest kid on the block",
     imageUrl: "/shopImages/kidsgreen.jpeg",
     price: 34.99,
@@ -93,7 +93,7 @@ const shopCardsArray = [
   {
     style: "Shade Of Brown",
     forWhom: "Men",
-    onSale: true,
+    onSale: false,
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
     imageUrl: "/shopImages/shadeofbrown.jpg",
@@ -134,7 +134,7 @@ const shopCardsArray = [
   {
     style: "The Johna Wayne",
     forWhom: "Women",
-    onSale: false,
+    onSale: true,
     description:
       "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
     imageUrl: "/shopImages/womensbrown.jpeg",
@@ -194,7 +194,7 @@ const shopCardsArray = [
   {
     style: "Cool Cats",
     forWhom: "Kids",
-    onSale: true,
+    onSale: false,
     description:
       "Corduroys that will make your kids WAY cooler than you. You have been warned.",
     imageUrl: "/shopImages/kids2.jpeg",
@@ -204,7 +204,7 @@ const shopCardsArray = [
   {
     style: "Cord Shorts",
     forWhom: "Women",
-    onSale: true,
+    onSale: false,
     description:
       "Corduroy shorts with enough pockets fpr all of your essentials!",
     imageUrl: "/shopImages/shorts.jpeg",
@@ -293,6 +293,7 @@ const buttonEvents = () => {
   }
   if (document.getElementById("homePage")) {
     renderFooter();
+    onSaleCarosel();
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("dropdown")) {
@@ -327,6 +328,8 @@ const alertUser = (e) => {
   }
 };
 
+
+
 const renderShopCards = (array) => {
   let domString = "";
   for (let i = 0; i < array.length; i++) {
@@ -357,16 +360,45 @@ const renderShopCards = (array) => {
   printToDom("shopCardsSection", domString);
 };
 
-// const sizeBuilder = (l) => {
-//   let sizeSection = "";
-//   for (let j = 0; j < l.size.length; j++) {
-//     sizeSection += `
-//                 <a class="dropdown-item" href="#'>${l.size[j]}</a>
-                  
-//                 `;
-//   }
-//   return sizeSection;
-// };
+/* <div class="carousel-item active d-block img-fluid">
+<img class="d-block img-fluid" src="${shopCardsArray[i].imageUrl}" alt="carosel">
+<div class="carousel-caption d-none d-md-block">
+<h5>${shopCardsArray[i].style}</h5>
+<p>${shopCardsArray[i].description}</p>
+</div> */
+const onSaleCarosel = ()=>{
+  let domString = ''
+  for(let i = 0; i < shopCardsArray.length; i++){
+    if(shopCardsArray[i].onSale === true){
+      domString += `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>`
+printToDom('onSale', domString)
+    }
+  }
+  
+
+}
+  
+
 const renderShopCardsOnSubmit = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
