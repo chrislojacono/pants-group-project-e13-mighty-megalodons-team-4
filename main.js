@@ -1,7 +1,14 @@
-'use strict';
+"use strict";
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
+};
+
+const renderLogo = () => {
+  let domString = `<div class="logo">
+  <img src=/images/KIDROCKS.png alt="Sweet Logo">
+  </div>`;
+  printToDom("headerLogo", domString);
 };
 
 const renderNavbar = () => {
@@ -31,7 +38,7 @@ const renderFooter = () => {
   </form>
 </nav>`;
   printToDom("footerInput", domString);
-}
+};
 const renderShopFooter = () => {
   let domString = `<nav class="navbar navbar-light bg-light">
   <form class="form-inline">
@@ -78,26 +85,7 @@ const renderShopFooter = () => {
 </div>
 </nav>`;
   printToDom("shopFooterInput", domString);
-}
-
-const renderReviewFooter = () => {
-  let domString = ` <hr class="my-4" />
-  <div>
-    <button class="btn btn-primary btn-lg-danger" role="button" id="addReview">
-      Review Our Pants
-    </button>
-    <div id="reviewFormDiv"></div>
-
-  </div>
-  <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input id="emailInput" class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
-  </form>
-</nav>`;
-  printToDom("footerInput", domString);
-}
-
+};
 
 const shopCardsArray = [
   {
@@ -286,26 +274,34 @@ const buttonEvents = () => {
     renderReviews();
     renderReviewForm();
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('bioPage')) {
-    renderBioCards()
+  if (document.getElementById("bioPage")) {
+    renderBioCards();
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('homePage')) {
-    renderFooter()
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+  if (document.getElementById("homePage")) {
+    renderFooter();
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderAllCards)
-    document.getElementById('mensButton').addEventListener('click', renderMensCards)
-    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
+  if (document.getElementById("dropdown")) {
+    document
+      .getElementById("allButton")
+      .addEventListener("click", renderAllCards);
+    document
+      .getElementById("mensButton")
+      .addEventListener("click", renderMensCards);
+    document
+      .getElementById("womensButton")
+      .addEventListener("click", renderWomensCards);
+    document
+      .getElementById("kidsButton")
+      .addEventListener("click", renderKidsCards);
   }
   if (document.getElementById('orderPage')) {
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
 
 
@@ -317,14 +313,11 @@ const alertUser = (e) => {
   if (buttonType === 'email') {
     if (emailInput1 === '') {
       alert("Please enter an E-mail!");
-
-    }
-    else {
-      alert("Thank you for subscribing")
+    } else {
+      alert("Thank you for subscribing");
     }
   }
 }
-
 
 const renderShopCards = (array) => {
   let domString = "";
@@ -640,7 +633,7 @@ const renderBioCards = () => {
 };
 
 const searchFunction = (e) => {
-  const searchId = e.target.value.toLowerCase()
+  const searchId = e.target.value.toLowerCase();
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
     return (
       shopCardsArray.style.toLowerCase().includes(searchId) ||
@@ -673,7 +666,7 @@ const captureNewProduct = (e) => {
 
 const init = () => {
   renderNavbar();
-
+  renderLogo();
   buttonEvents();
 };
 
