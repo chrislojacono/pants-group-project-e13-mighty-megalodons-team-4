@@ -493,7 +493,7 @@ const renderReviewForm = () => {
     `;
 
   reviewsFormTemplate = `
-  <form id="reviewForm reviewsInput">
+  <form id="reviewForm" class="reviewsInput">
   <label for="avatar">Please choose an avatar:</label>
   <div class="form-check reviewsInput">
   ${avatarInputs}
