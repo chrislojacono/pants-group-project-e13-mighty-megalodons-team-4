@@ -522,7 +522,7 @@ const renderReviewForm = () => {
   <label for="exampleFormControlTextarea1">Comment</label>
   <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
 </div>
-<div>
+<div class="form-group reviewsInput">
 <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 </div>
 <div class="shim"></div>
