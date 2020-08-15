@@ -432,15 +432,31 @@ const renderAllCards = () => {
 //ORDER FORM JS
 
 const populateForm = () => {
-  const select = document.getElementById('selectStyle');
+  const selectStyle = document.getElementById('selectStyle');
+  const selectSize = document.getElementById('selectSize');
+  const selectColor = document.getElementById('selectColor');
+  const selectQuantity = document.getElementById('selectQuantity');
     
     for (let i = 0; i < shopCardsArray.length; i++) {
       let option = document.createElement("OPTION"),
         txt = document.createTextNode(shopCardsArray[i].style);
       option.appendChild(txt);
-      select.insertBefore(option, select.lastChild);
+      selectStyle.insertBefore(option, selectStyle.lastChild);
+      
+      if (document.getElementById('selectSize')) {
+        let option = document.createElement("OPTION"),
+        txt = document.createTextNode(shopCardsArray[i].forWhom);
+      option.appendChild(txt);
+      selectSize.insertBefore(option, selectSize.lastChild);
+      }
     }
 }
+
+
+// selectElement.addEventListener('change', (event) => {
+//   const result = document.querySelector('selectSize');
+//   result.textContent = `You like ${event.target.value}`;
+// });
 
 const canPopulateForm = () => {
   if (document.getElementById('orderForm')) {
