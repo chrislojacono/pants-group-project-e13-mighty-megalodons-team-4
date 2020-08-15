@@ -445,6 +445,142 @@ const reviewsArray = [
   },
 ];
 
+const reviewsForm = () => {
+  let reviewsFormTemplate = "";
+  let avatarInputs = "";
+
+
+  avatarInputs += `
+  <form class="avatar" id="avatar">
+    <input id="1" type="radio" name="avatar1" value="1" />
+    <label class="avatarStyle avatar-1" for="avatar"></label>
+    <input id="2" type="radio" name="avatar" value="2" />
+    <label class="avatarStyle avatar-2"for="avatar"></label>
+    <input  id="3" type="radio" name="avatar" value="3" />
+    <label class="avatarStyle avatar-3" for="avatar"></label>
+    <input id="4" type="radio" name="avatar" value="4" />
+    <label class="avatarStyle avatar-4" for="avatar"></label>
+    <input  id="5" type="radio" name="avatar" value="5" />
+    <label class="avatarStyle avatar-5" for="avatar"></label>
+    <input id="6" type="radio" name="avatar" value="6" />
+    <label class="avatarStyle avatar-6" for="avatar"></label>
+    <input  id="7" type="radio" name="avatar" value="7" />
+    <label class="avatarStyle avatar-7" for="avatar"></label>
+    <input id="8" type="radio" name="avatar" value="8" />
+    <label class="avatarStyle avatar-8" for="avatar"></label>
+    <input  id="9" type="radio" name="avatar" value="9" />
+    <label class="avatarStyle avatar-9" for="avatar"></label>
+    <input id="10" type="radio" name="avatar" value="10" />
+    <label class="avatarStyle avatar-10" for="avatar"></label>
+    <input  id="11" type="radio" name="avatar" value="11" />
+    <label class="avatarStyle avatar-11" for="avatar"></label>
+    <input id="12" type="radio" name="avatar" value="12" />
+    <label class="avatarStyle avatar-12"for="avatar"></label>
+    </form>
+    
+    `;
+
+  reviewsFormTemplate = `
+  <form id="reviewForm">
+  <label for="avatar">Please choose an avatar:</label>
+  <div class="form-check">
+  ${avatarInputs}
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="product">Product Name</label>
+    <input type="text" class="form-control" id="product" placeholder="Corduroys">
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlSelect2">Give a star rating</label>
+  <select class="form-control" id="numberOfStars">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Comment</label>
+  <textarea class="form-control" id="comment" rows="3"></textarea>
+</div>
+</form>
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+</form>
+  `;
+
+  printToDom("reviewFormDiv", reviewsFormTemplate);
+  document.getElementById("submit").addEventListener('click', getReviewInfo);
+  document.getElementById("reviewForm").addEventListener('click', addClicksToRadios);
+
+
+}
+
+
+const addClicksToRadios = (e) => {
+  let classes = e.target.className;
+  let radioClass = classes.replace("avatarStyle avatar-", "");
+  var ele = document.getElementsByTagName('input');
+  document.getElementById(radioClass).checked = true;
+  if (radioClass != 1) {
+    document.getElementById(1).checked = false;
+  };
+
+
+
+}
+
+
+const getReviewInfo = (e) => {
+  e.preventDefault();
+  let buttonId = e.target.id;
+  if (buttonId === "submit") {
+    var ele = document.getElementsByTagName('input');
+
+    //If select comes out as 3 it is 4, if 0 it is 1
+    let rating = document.getElementById('numberOfStars').selectedIndex + 1;
+    let avatar;
+    // LOOP THROUGH EACH ELEMENT.
+
+
+    let product = document.getElementById("product").value;
+
+    let name = document.getElementById("name").value;
+
+
+    for (i = 0; i < ele.length; i++) {
+
+      if (ele[i].type == 'radio' && ele[i].checked) {
+        console.log(ele[i].checked);
+        avatar = `${ele[i].id}.jpg`;
+      }
+      // CHECK THE ELEMENT TYPE.
+
+
+
+    }
+    let comment = document.getElementById("comment").value;
+    console.log("All the values current:")
+    console.log(name, product, rating, avatar, comment);
+    reviewsArray.push({
+      name: name,
+      rating: rating,
+      product: product,
+      comment: comment,
+      avatar: avatar
+    });
+
+  }
+
+
+  // Make on submit event listener and clear form and renderReviews();
+};
+
 const renderReviews = () => {
   let domString = "";
   for (let i = 0; i < reviewsArray.length; i++) {
