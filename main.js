@@ -285,15 +285,6 @@ const buttonEvents = () => {
     renderFooter();
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('orderButtons')) {
-    // document.getElementById('calculateButton').addEventListener('click', calculateTotal)
-    document.getElementById('submitButton').addEventListener('click', submitOrderForm)
-  };
-  if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderAllCards)
-    document.getElementById('mensButton').addEventListener('click', renderMensCards)
-    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   if (document.getElementById("dropdown")) {
     document
       .getElementById("allButton")
@@ -313,36 +304,10 @@ const buttonEvents = () => {
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   
-}
-
-//ORDER FORM JS
-
-
-const populateForm = () => {
-  const select = document.getElementById('selectStyle');
-    
-    for (let i = 0; i < shopCardsArray.length; i++) {
-      let option = document.createElement("OPTION"),
-        txt = document.createTextNode(shopCardsArray[i].style);
-      option.appendChild(txt);
-      select.insertBefore(option, select.lastChild);
-    }
-}
-
-const canPopulateForm = () => {
-  if (document.getElementById('orderForm')) {
-    populateForm();
-  }
-}
-
-const submitOrderForm = (event) => {
-  document.getElementById('orderForm').reset();
-};
-
-
-const calculateTotal = (event) => {
-  
-
+  if (document.getElementById('orderButtons')) {
+    // document.getElementById('calculateButton').addEventListener('click', calculateTotal)
+    document.getElementById('submitButton').addEventListener('click', submitOrderForm);
+  };
 
 }
 
@@ -463,6 +428,36 @@ const renderAllCards = () => {
   }
   printToDom("shopCardsSection", domString);
 };
+
+//ORDER FORM JS
+
+const populateForm = () => {
+  const select = document.getElementById('selectStyle');
+    
+    for (let i = 0; i < shopCardsArray.length; i++) {
+      let option = document.createElement("OPTION"),
+        txt = document.createTextNode(shopCardsArray[i].style);
+      option.appendChild(txt);
+      select.insertBefore(option, select.lastChild);
+    }
+}
+
+const canPopulateForm = () => {
+  if (document.getElementById('orderForm')) {
+    populateForm();
+  }
+}
+
+const submitOrderForm = (event) => {
+  document.getElementById('orderForm').reset();
+};
+
+
+const calculateTotal = (event) => {
+  
+
+}
+
 
 const reviewsArray = [
   {
@@ -707,7 +702,6 @@ const init = () => {
   renderNavbar();
   renderLogo();
   buttonEvents();
-
   canPopulateForm();
 };
 
