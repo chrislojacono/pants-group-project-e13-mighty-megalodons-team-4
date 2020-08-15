@@ -32,6 +32,69 @@ html, body {
     background-size: cover;
     background-position: center;
 }
+
+/*Reviews Section*/
+
+   [type=radio] + img {
+    cursor: pointer;
+    height: 100px;
+  }
+   
+[type=radio] + img {
+    cursor: pointer;
+  }
+
+.avatar-1 {background-image:url(images/reviewAvatars/1.jpg);}
+.avatar-2 {background-image:url(images/reviewAvatars/2.jpg);}
+.avatar-3 {background-image:url(images/reviewAvatars/3.jpg);}
+.avatar-4 {background-image:url(images/reviewAvatars/4.jpg);}
+.avatar-5 {background-image:url(images/reviewAvatars/5.jpg);}
+.avatar-6 {background-image:url(images/reviewAvatars/6.jpg);}
+.avatar-7 {background-image:url(images/reviewAvatars/7.jpg);}
+.avatar-8 {background-image:url(images/reviewAvatars/8.jpg);}
+.avatar-9 {background-image:url(images/reviewAvatars/9.jpg);}
+.avatar-10 {background-image:url(images/reviewAvatars/10.jpg);}
+.avatar-11 {background-image:url(images/reviewAvatars/11.jpg);}
+.avatar-12 {background-image:url(images/reviewAvatars/12.jpg);}
+
+/*.avatar input:active +.avatarStyle{opacity: .9;}*/
+ .avatar input:checked +.avatarStyle{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+            opacity: 1;
+}
+input[type="radio"] {
+    display: none;
+  }
+
+.avatarStyle{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.avatarStyle:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.shim {
+height: 60px;
+width: 100%;
+}
+#addReview {
+    margin-left: 120px;
+}
+
 #searchBarInput{
     width: 28%;
     margin: 10px;
