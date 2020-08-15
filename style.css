@@ -14,7 +14,12 @@ html, body {
 } 
 
 .reviewsInput {
-    width: 55%;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.reviewsInput > button[type="submit"] {
+    padding-top: 20px;
 }
 
 .searchSection {
