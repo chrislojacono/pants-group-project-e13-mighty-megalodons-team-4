@@ -278,6 +278,10 @@ const buttonEvents = () => {
     renderFooter()
     document.getElementById("footerInput").addEventListener("click", alertUser)
   }
+  if (document.getElementById('orderButtons')) {
+    document.getElementById('calculateButton').addEventListener('click', calculateTotal)
+    document.getElementById('submitButton').addEventListener('click', submitOrderForm)
+  };
   if (document.getElementById('dropdown')) {
     document.getElementById('allButton').addEventListener('click', renderAllCards)
     document.getElementById('mensButton').addEventListener('click', renderMensCards)
@@ -291,6 +295,13 @@ const buttonEvents = () => {
  
   
 }
+
+//ORDER FORM JS
+const submitOrderForm = (event) => {
+  console.log('i work now');
+  // document.getElementById('orderForm').reset();
+};
+
 
 const alertUser = (e) => {
   const buttonType = e.target.type;
