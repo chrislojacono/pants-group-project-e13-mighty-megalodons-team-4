@@ -1,7 +1,14 @@
-'use strict';
+"use strict";
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
+};
+
+const renderLogo = () => {
+  let domString = `<div class="logo">
+  <img src=/images/KIDROCKS.png alt="Sweet Logo">
+  </div>`;
+  printToDom("headerLogo", domString);
 };
 
 const renderNavbar = () => {
@@ -31,7 +38,7 @@ const renderFooter = () => {
   </form>
 </nav>`;
   printToDom("footerInput", domString);
-}
+};
 const renderShopFooter = () => {
   let domString = `<nav class="navbar navbar-light bg-light">
   <form class="form-inline">
@@ -78,8 +85,7 @@ const renderShopFooter = () => {
 </div>
 </nav>`;
   printToDom("shopFooterInput", domString);
-}
-
+};
 
 const shopCardsArray = [
   {
@@ -258,54 +264,58 @@ const buttonEvents = () => {
     document
       .getElementById("shopFooterInput")
       .addEventListener("click", captureNewProduct);
-      document
+    document
       .getElementById("shopFooterInput")
       .addEventListener("click", renderShopCardsOnSubmit);
-      document.getElementById("shopFooterInput").addEventListener("click", alertUser)
-      
+    document
+      .getElementById("shopFooterInput")
+      .addEventListener("click", alertUser);
   }
   if (document.getElementById("reviews")) {
     renderReviews();
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('bioPage')){
-    renderBioCards()
+  if (document.getElementById("bioPage")) {
+    renderBioCards();
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-  if (document.getElementById('homePage')){
-    renderFooter()
-    document.getElementById("footerInput").addEventListener("click", alertUser)
-  }
-  if (document.getElementById('dropdown')) {
-    document.getElementById('allButton').addEventListener('click', renderAllCards)
-    document.getElementById('mensButton').addEventListener('click', renderMensCards)
-    document.getElementById('womensButton').addEventListener('click', renderWomensCards)
-    document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
-  }
-  if(document.getElementById('orderPage')){
+  if (document.getElementById("homePage")) {
     renderFooter();
-    document.getElementById("footerInput").addEventListener("click", alertUser)
+    document.getElementById("footerInput").addEventListener("click", alertUser);
   }
- 
-  
-}
+  if (document.getElementById("dropdown")) {
+    document
+      .getElementById("allButton")
+      .addEventListener("click", renderAllCards);
+    document
+      .getElementById("mensButton")
+      .addEventListener("click", renderMensCards);
+    document
+      .getElementById("womensButton")
+      .addEventListener("click", renderWomensCards);
+    document
+      .getElementById("kidsButton")
+      .addEventListener("click", renderKidsCards);
+  }
+  if (document.getElementById("orderPage")) {
+    renderFooter();
+    document.getElementById("footerInput").addEventListener("click", alertUser);
+  }
+};
 
 const alertUser = (e) => {
   const buttonType = e.target.id;
-  let emailInput1 = document.getElementById('emailInput').value;
-  if(buttonType === 'email'){
-  if (emailInput1 === ''){
+  let emailInput1 = document.getElementById("emailInput").value;
+  if (buttonType === "email") {
+    if (emailInput1 === "") {
       alert("Please enter an E-mail!");
-      
+    } else {
+      alert("Thank you for subscribing");
+    }
   }
-  else {
-    alert("Thank you for subscribing")
-  }
-}
-}
-
+};
 
 const renderShopCards = (array) => {
   let domString = "";
@@ -322,7 +332,6 @@ const renderShopCards = (array) => {
   `;
   }
   printToDom("shopCardsSection", domString);
-  
 };
 const renderShopCardsOnSubmit = () => {
   let domString = "";
@@ -339,10 +348,8 @@ const renderShopCardsOnSubmit = () => {
   `;
   }
   printToDom("shopCardsSection", domString);
-  
 };
 const renderMensCards = () => {
- 
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Men") {
@@ -480,8 +487,8 @@ const renderBioCards = () => {
   printToDom("bioCards", domString);
 };
 
-const searchFunction = (e)=>{
-  const searchId = e.target.value.toLowerCase()
+const searchFunction = (e) => {
+  const searchId = e.target.value.toLowerCase();
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
     return (
       shopCardsArray.style.toLowerCase().includes(searchId) ||
@@ -491,7 +498,6 @@ const searchFunction = (e)=>{
   renderShopCards(filteredPants);
 };
 const captureNewProduct = (e) => {
-  
   let buttonId = e.target.id;
   if (buttonId === "addCardToShopButton") {
     const pantsStyle = document.querySelector("#styleInput").value;
@@ -509,12 +515,11 @@ const captureNewProduct = (e) => {
     };
     shopCardsArray.push(newCardObject);
   }
- 
 };
 
 const init = () => {
   renderNavbar();
-  
+  renderLogo();
   buttonEvents();
 };
 
