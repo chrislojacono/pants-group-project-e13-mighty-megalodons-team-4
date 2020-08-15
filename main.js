@@ -1,7 +1,14 @@
-'use strict';
+"use strict";
 const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
+};
+
+const renderLogo = () => {
+  let domString = `<div class="logo d-flex">
+  <img class="logoImage" src=/images/KIDROCKS.png alt="Sweet Logo">
+  </div>`;
+  printToDom("headerLogo", domString);
 };
 
 const renderNavbar = () => {
@@ -98,7 +105,7 @@ const shopCardsArray = [
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
     imageUrl: "/shopImages/shadeofbrown.jpg",
     price: 39.99,
-    size: [ " Small ", " Medium ", " Large ", " XL "],
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
 
   {
@@ -210,7 +217,7 @@ const shopCardsArray = [
     imageUrl: "/shopImages/shorts.jpeg",
     price: 64.99,
     size: [" Small ", " Medium ", " XL "],
-  }, 
+  },
   {
     style: "Real Teal",
     forWhom: "Men",
@@ -283,6 +290,7 @@ const buttonEvents = () => {
   }
   if (document.getElementById("reviews")) {
     renderReviews();
+    renderReviewForm();
     renderFooter();
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
@@ -328,16 +336,11 @@ const alertUser = (e) => {
   }
 };
 
-
-
 const renderShopCards = (array) => {
   let domString = "";
   for (let i = 0; i < array.length; i++) {
-    
     domString += `<div class="card" style="width: 18rem;">
-    <div class="img-container" style="background-image: url(${
-      array[i].imageUrl
-    })">
+    <div class="img-container" style="background-image: url(${array[i].imageUrl})">
     </div>
     <div class="card-body">
       <h3 class="card-title">${array[i].style}</h3>
@@ -360,28 +363,38 @@ const renderShopCards = (array) => {
   printToDom("shopCardsSection", domString);
 };
 
-/* <div class="carousel-item active d-block img-fluid">
-<img class="d-block img-fluid" src="${shopCardsArray[i].imageUrl}" alt="carosel">
-<div class="carousel-caption d-none d-md-block">
-<h5>${shopCardsArray[i].style}</h5>
-<p>${shopCardsArray[i].description}</p>
-</div> */
-const onSaleCarosel = ()=>{
-  let domString = ''
-  for(let i = 0; i < shopCardsArray.length; i++){
-    if(shopCardsArray[i].onSale === true){
-      domString += `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="Third slide">
-    </div>
-  </div>
+let arrayOfOnSale = [
+  {
+    imageUrl: "/shopImages/cowboy.jpg",
+  },
+  {
+    imageUrl: "/shopImages/navymens.jpeg",
+  },
+  {
+    imageUrl: "/shopImages/fittedwomens.jpg",
+  },
+  {
+    imageUrl: "/shopImages/cowboy.jpg",
+  },
+  {
+    imageUrl: "/shopImages/womensbrown.jpeg",
+  },
+];
+
+const onSaleCarosel = () => {
+  let domString = "";
+
+  domString += `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">`;
+  for (let i = 0; i < arrayOfOnSale.length; i++) {
+    domString += `<div class="carousel-item ${i === 0 ? "active" : ""}">
+      <img class="d-block w-100" src="${
+        arrayOfOnSale[i].imageUrl
+      }" alt="First slide">
+    </div>`;
+  }
+
+  domString += `</div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -390,23 +403,15 @@ const onSaleCarosel = ()=>{
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>`
-printToDom('onSale', domString)
-    }
-  }
-  
-
-}
-  
+</div>`;
+  printToDom("onSale", domString);
+};
 
 const renderShopCardsOnSubmit = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    
     domString += `<div class="card" style="width: 18rem;">
-    <div class="img-container" style="background-image: url(${
-      shopCardsArray[i].imageUrl
-    })">
+    <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
     </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -431,11 +436,8 @@ const renderMensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Men") {
-      
       domString += `<div class="card" style="width: 18rem;">
-      <div class="img-container" style="background-image: url(${
-        shopCardsArray[i].imageUrl
-      })">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
       <div class="card-body">
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -461,11 +463,8 @@ const renderWomensCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Women") {
-      
       domString += `<div class="card" style="width: 18rem;">
-      <div class="img-container" style="background-image: url(${
-        shopCardsArray[i].imageUrl
-      })">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
       <div class="card-body">
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -491,11 +490,8 @@ const renderKidsCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Kids") {
-      
       domString += `<div class="card" style="width: 18rem;">
-      <div class="img-container" style="background-image: url(${
-        shopCardsArray[i].imageUrl
-      })">
+      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
       <div class="card-body">
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -520,11 +516,8 @@ const renderKidsCards = () => {
 const renderAllCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
-    
     domString += `<div class="card" style="width: 18rem;">
-    <div class="img-container" style="background-image: url(${
-      shopCardsArray[i].imageUrl
-    })">
+    <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
     </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
@@ -578,10 +571,135 @@ const reviewsArray = [
   },
 ];
 
+const renderReviewForm = () => {
+  let reviewsFormTemplate = "";
+  let avatarInputs = "";
+
+  avatarInputs += `
+  <form class="avatar" id="avatar">
+    <input id="1" type="radio" name="avatar1" value="1" />
+    <label class="avatarStyle avatar-1" for="avatar"></label>
+    <input id="2" type="radio" name="avatar" value="2" />
+    <label class="avatarStyle avatar-2"for="avatar"></label>
+    <input  id="3" type="radio" name="avatar" value="3" />
+    <label class="avatarStyle avatar-3" for="avatar"></label>
+    <input id="4" type="radio" name="avatar" value="4" />
+    <label class="avatarStyle avatar-4" for="avatar"></label>
+    <input  id="5" type="radio" name="avatar" value="5" />
+    <label class="avatarStyle avatar-5" for="avatar"></label>
+    <input id="6" type="radio" name="avatar" value="6" />
+    <label class="avatarStyle avatar-6" for="avatar"></label>
+    <input  id="7" type="radio" name="avatar" value="7" />
+    <label class="avatarStyle avatar-7" for="avatar"></label>
+    <input id="8" type="radio" name="avatar" value="8" />
+    <label class="avatarStyle avatar-8" for="avatar"></label>
+    <input  id="9" type="radio" name="avatar" value="9" />
+    <label class="avatarStyle avatar-9" for="avatar"></label>
+    <input id="10" type="radio" name="avatar" value="10" />
+    <label class="avatarStyle avatar-10" for="avatar"></label>
+    <input  id="11" type="radio" name="avatar" value="11" />
+    <label class="avatarStyle avatar-11" for="avatar"></label>
+    <input id="12" type="radio" name="avatar" value="12" />
+    <label class="avatarStyle avatar-12"for="avatar"></label>
+    </form>
+    
+    `;
+
+  reviewsFormTemplate = `
+  <form id="reviewForm">
+  <label for="avatar">Please choose an avatar:</label>
+  <div class="form-check">
+  ${avatarInputs}
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="product">Product Name</label>
+    <input type="text" class="form-control" id="product" placeholder="Corduroys">
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlSelect2">Give a star rating</label>
+  <select class="form-control" id="numberOfStars">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Comment</label>
+  <textarea class="form-control" id="comment" rows="3"></textarea>
+</div>
+<div>
+<button type="submit" id="submit" class="btn btn-primary">Submit</button>
+</div>
+<div class="shim"></div>
+</form>
+  `;
+
+  printToDom("reviewFormDiv", reviewsFormTemplate);
+  document.getElementById("submit").addEventListener("click", getReviewInfo);
+  document
+    .getElementById("reviewForm")
+    .addEventListener("click", addClicksToRadios);
+};
+
+const addClicksToRadios = (e) => {
+  let classes = e.target.className;
+  let radioClass = classes.replace("avatarStyle avatar-", "");
+  var ele = document.getElementsByTagName("input");
+  document.getElementById(radioClass).checked = true;
+  if (radioClass != 1) {
+    document.getElementById(1).checked = false;
+  }
+};
+
+const getReviewInfo = (e) => {
+  e.preventDefault();
+  let buttonId = e.target.id;
+  if (buttonId === "submit") {
+    var ele = document.getElementsByTagName("input");
+
+    //If select comes out as 3 it is 4, if 0 it is 1
+    let rating = document.getElementById("numberOfStars").selectedIndex + 1;
+    let avatar;
+    // LOOP THROUGH EACH ELEMENT.
+
+    let product = document.getElementById("product").value;
+
+    let name = document.getElementById("name").value;
+
+    for (let i = 0; i < ele.length; i++) {
+      if (ele[i].type == "radio" && ele[i].checked) {
+        console.log(ele[i].checked);
+        avatar = `${ele[i].id}.jpg`;
+      }
+      // CHECK THE ELEMENT TYPE.
+    }
+    let comment = document.getElementById("comment").value;
+    console.log("All the values current:");
+    console.log(name, product, rating, avatar, comment);
+    reviewsArray.push({
+      name: name,
+      rating: rating,
+      product: product,
+      comment: comment,
+      avatar: avatar,
+    });
+    renderReviews();
+  }
+
+  // Make on submit event listener and clear form and renderReviews();
+};
+
 const renderReviews = () => {
   let domString = "";
   for (let i = 0; i < reviewsArray.length; i++) {
-    domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card d-flex flex-wrap" style="width: 18rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
       <h3 class="card-title">${reviewsArray[i].name}</h3>
@@ -593,6 +711,7 @@ const renderReviews = () => {
       </div>
     </div>
   </div>
+  
   `;
   }
   printToDom("reviewsSection", domString);
@@ -645,7 +764,7 @@ const captureNewProduct = (e) => {
 
 const init = () => {
   renderNavbar();
-
+  renderLogo();
   buttonEvents();
 };
 
