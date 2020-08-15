@@ -35,8 +35,6 @@ html, body {
 
 /*Reviews Section*/
 
-
-
    [type=radio] + img {
     cursor: pointer;
     height: 100px;
@@ -89,8 +87,13 @@ input[type="radio"] {
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 
-
-
+.shim {
+height: 60px;
+width: 100%;
+}
+#addReview {
+    margin-left: 120px;
+}
 
 #searchBarInput{
     width: 28%;

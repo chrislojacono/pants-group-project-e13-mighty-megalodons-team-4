@@ -80,6 +80,24 @@ const renderShopFooter = () => {
   printToDom("shopFooterInput", domString);
 }
 
+const renderReviewFooter = () => {
+  let domString = ` <hr class="my-4" />
+  <div>
+    <button class="btn btn-primary btn-lg-danger" role="button" id="addReview">
+      Review Our Pants
+    </button>
+    <div id="reviewFormDiv"></div>
+
+  </div>
+  <nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input id="emailInput" class="form-control mr-sm-2" type="search" placeholder="Enter your Email" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" id="email" type="submit">Subscribe</button>
+  </form>
+</nav>`;
+  printToDom("footerInput", domString);
+}
+
 
 const shopCardsArray = [
   {
@@ -258,23 +276,24 @@ const buttonEvents = () => {
     document
       .getElementById("shopFooterInput")
       .addEventListener("click", captureNewProduct);
-      document
+    document
       .getElementById("shopFooterInput")
       .addEventListener("click", renderShopCardsOnSubmit);
-      document.getElementById("shopFooterInput").addEventListener("click", alertUser)
-      
+    document.getElementById("shopFooterInput").addEventListener("click", alertUser)
+
   }
   if (document.getElementById("reviews")) {
     renderReviews();
+    renderReviewForm();
     renderFooter();
     document.getElementById("footerInput").addEventListener("click", alertUser)
   }
-  if (document.getElementById('bioPage')){
+  if (document.getElementById('bioPage')) {
     renderBioCards()
     renderFooter();
     document.getElementById("footerInput").addEventListener("click", alertUser)
   }
-  if (document.getElementById('homePage')){
+  if (document.getElementById('homePage')) {
     renderFooter()
     document.getElementById("footerInput").addEventListener("click", alertUser)
   }
@@ -284,26 +303,26 @@ const buttonEvents = () => {
     document.getElementById('womensButton').addEventListener('click', renderWomensCards)
     document.getElementById('kidsButton').addEventListener('click', renderKidsCards)
   }
-  if(document.getElementById('orderPage')){
+  if (document.getElementById('orderPage')) {
     renderFooter();
     document.getElementById("footerInput").addEventListener("click", alertUser)
   }
- 
-  
+
+
 }
 
 const alertUser = (e) => {
   const buttonType = e.target.id;
   let emailInput1 = document.getElementById('emailInput').value;
-  if(buttonType === 'email'){
-  if (emailInput1 === ''){
+  if (buttonType === 'email') {
+    if (emailInput1 === '') {
       alert("Please enter an E-mail!");
-      
+
+    }
+    else {
+      alert("Thank you for subscribing")
+    }
   }
-  else {
-    alert("Thank you for subscribing")
-  }
-}
 }
 
 
@@ -322,7 +341,7 @@ const renderShopCards = (array) => {
   `;
   }
   printToDom("shopCardsSection", domString);
-  
+
 };
 const renderShopCardsOnSubmit = () => {
   let domString = "";
@@ -339,10 +358,10 @@ const renderShopCardsOnSubmit = () => {
   `;
   }
   printToDom("shopCardsSection", domString);
-  
+
 };
 const renderMensCards = () => {
- 
+
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Men") {
@@ -445,7 +464,7 @@ const reviewsArray = [
   },
 ];
 
-const reviewsForm = () => {
+const renderReviewForm = () => {
   let reviewsFormTemplate = "";
   let avatarInputs = "";
 
@@ -489,7 +508,7 @@ const reviewsForm = () => {
   
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+    <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
   </div>
   <div class="form-group">
     <label for="product">Product Name</label>
@@ -509,8 +528,10 @@ const reviewsForm = () => {
   <label for="exampleFormControlTextarea1">Comment</label>
   <textarea class="form-control" id="comment" rows="3"></textarea>
 </div>
-</form>
-  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+<div>
+<button type="submit" id="submit" class="btn btn-primary">Submit</button>
+</div>
+<div class="shim"></div>
 </form>
   `;
 
@@ -553,7 +574,7 @@ const getReviewInfo = (e) => {
     let name = document.getElementById("name").value;
 
 
-    for (i = 0; i < ele.length; i++) {
+    for (let i = 0; i < ele.length; i++) {
 
       if (ele[i].type == 'radio' && ele[i].checked) {
         console.log(ele[i].checked);
@@ -574,7 +595,7 @@ const getReviewInfo = (e) => {
       comment: comment,
       avatar: avatar
     });
-
+    renderReviews();
   }
 
 
@@ -596,9 +617,11 @@ const renderReviews = () => {
       </div>
     </div>
   </div>
+  
   `;
   }
   printToDom("reviewsSection", domString);
+
 };
 
 const renderBioCards = () => {
@@ -616,7 +639,7 @@ const renderBioCards = () => {
   printToDom("bioCards", domString);
 };
 
-const searchFunction = (e)=>{
+const searchFunction = (e) => {
   const searchId = e.target.value.toLowerCase()
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
     return (
@@ -627,7 +650,7 @@ const searchFunction = (e)=>{
   renderShopCards(filteredPants);
 };
 const captureNewProduct = (e) => {
-  
+
   let buttonId = e.target.id;
   if (buttonId === "addCardToShopButton") {
     const pantsStyle = document.querySelector("#styleInput").value;
@@ -645,12 +668,12 @@ const captureNewProduct = (e) => {
     };
     shopCardsArray.push(newCardObject);
   }
- 
+
 };
 
 const init = () => {
   renderNavbar();
-  
+
   buttonEvents();
 };
 
