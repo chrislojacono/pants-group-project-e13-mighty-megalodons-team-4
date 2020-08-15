@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
@@ -18,3 +20,8 @@ const shopCards = [
     price: "60.00",
   },
 ];
+
+main_REMOTE_796.js
+main_REMOTE_796.js.swp
+main.js.swp
+>>>>>>> master

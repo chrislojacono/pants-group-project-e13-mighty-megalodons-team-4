@@ -1,3 +1,11 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+.review-wrapper{
+    min-height: 100%;
+}
 
 #reviewsSection {
     display: flex;
@@ -5,17 +13,22 @@
     text-align: center;
 }
 
-.searchSection{
+.searchSection {
     display: flex;
     flex-direction:column;
 }
 
-.card{
+#shopCardsSection{
+    margin-bottom: 20px;
+}
+
+.card {
     margin: 20px;
+    
     text-align: center;
 }
-.img-container{
-    height: 300px;
+.img-container {
+    height:300px;
     background-size: cover;
     background-position: center;
 }
@@ -78,3 +91,40 @@ input[type="radio"] {
 
 
 
+
+#searchBarInput{
+    width: 28%;
+    margin: 10px;
+}
+
+#bioWelcome{
+    text-align: center;
+    padding-top: 20px;
+}
+
+#bioCards {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.bio-wrapper{
+    min-height: 100%;
+}
+
+#footerInput{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
+}
+
+.shop-footer{
+    padding-top: 20px;
+}
+
+#formWrapper{
+    min-height: 100%;
+}
