@@ -68,3 +68,8 @@ html, body {
 #formWrapper{
     min-height: 100%;
 }
+
+#sizeDropdown{
+    margin: 10px;
+    padding: 20px;
+}
