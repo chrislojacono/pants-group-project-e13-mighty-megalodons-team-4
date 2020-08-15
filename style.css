@@ -11,6 +11,10 @@ html, body {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+} 
+
+.reviewsInput {
+    width: 55%;
 }
 
 .searchSection {
@@ -41,6 +45,10 @@ html, body {
 
 /*Reviews Section*/
 
+#reviewsSection {
+   
+    margin: 0 auto;
+}
    [type=radio] + img {
     cursor: pointer;
     height: 100px;
@@ -63,8 +71,8 @@ html, body {
 .avatar-11 {background-image:url(images/reviewAvatars/11.jpg);}
 .avatar-12 {background-image:url(images/reviewAvatars/12.jpg);}
 
-
- .avatar input:checked +.avatarStyle{
+/*.avatar input:active +.avatarStyle{opacity: .9;}*/
+ input[name="avatar"]:checked +.avatarStyle {
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
