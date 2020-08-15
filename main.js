@@ -363,36 +363,31 @@ const renderShopCards = (array) => {
   printToDom("shopCardsSection", domString);
 };
 
-let arrayOfOnSale = [
-  {
-    imageUrl: "/shopImages/cowboy.jpg",
-  },
-  {
-    imageUrl: "/shopImages/navymens.jpeg",
-  },
-  {
-    imageUrl: "/shopImages/fittedwomens.jpg",
-  },
-  {
-    imageUrl: "/shopImages/cowboy.jpg",
-  },
-  {
-    imageUrl: "/shopImages/womensbrown.jpeg",
-  },
-];
+
+
+
 
 const onSaleCarosel = () => {
   let domString = "";
-
+  let isFirst = true
   domString += `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">`;
-  for (let i = 0; i < arrayOfOnSale.length; i++) {
-    domString += `<div class="carousel-item ${i === 0 ? "active" : ""}">
-      <img class="d-block w-100" src="${
-        arrayOfOnSale[i].imageUrl
-      }" alt="First slide">
-    </div>`;
-  }
+                  <div class="carousel-inner">`;
+
+  for (let i = 0; i < shopCardsArray.length; i++) {
+    
+    if(shopCardsArray[i].onSale && isFirst) {
+      domString += `<div class="carousel-item active">
+                      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
+                    </div>`;
+
+      isFirst = false;
+    } else if (shopCardsArray[i].onSale) {
+      domString += `<div class="carousel-item">
+                      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
+                    </div>`;
+    }
+
+} 
 
   domString += `</div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -653,53 +648,21 @@ const addClicksToRadios = (e) => {
   let classes = e.target.className;
   console.log(classes);
   let radioClass = classes.replace("avatarStyle avatar-", "");
-<<<<<<< HEAD
-  var ele = document.getElementsByTagName("input");
-  document.getElementById(radioClass).checked = true;
-  if (radioClass != 1) {
-    document.getElementById(1).checked = false;
-  }
-};
-=======
   //var ele = document.getElementsByTagName('input');
   document.getElementById(radioClass).checked = true;
   console.log(document.getElementById(radioClass));
 }
 
->>>>>>> master
 
 const getReviewInfo = (e) => {
   e.preventDefault();
   let buttonId = e.target.id;
   if (buttonId === "submit") {
-<<<<<<< HEAD
-    var ele = document.getElementsByTagName("input");
-
-    //If select comes out as 3 it is 4, if 0 it is 1
-    let rating = document.getElementById("numberOfStars").selectedIndex + 1;
-    let avatar;
-    // LOOP THROUGH EACH ELEMENT.
-
-=======
     var ele = document.getElementsByTagName('input');
     let rating = document.getElementById('numberOfStars').selectedIndex + 1;
     let avatar;
->>>>>>> master
     let product = document.getElementById("product").value;
     let name = document.getElementById("name").value;
-<<<<<<< HEAD
-
-    for (let i = 0; i < ele.length; i++) {
-      if (ele[i].type == "radio" && ele[i].checked) {
-        console.log(ele[i].checked);
-        avatar = `${ele[i].id}.jpg`;
-      }
-      // CHECK THE ELEMENT TYPE.
-    }
-    let comment = document.getElementById("comment").value;
-    console.log("All the values current:");
-    console.log(name, product, rating, avatar, comment);
-=======
     for (let i = 0; i < ele.length; i++) {
       if (ele[i].type == 'radio' && ele[i].checked) {
         console.log(ele[i].checked);
@@ -707,7 +670,6 @@ const getReviewInfo = (e) => {
       }
     }
     let comment = document.getElementById("comment").value;
->>>>>>> master
     reviewsArray.push({
       name: name,
       rating: rating,
@@ -728,21 +690,14 @@ const getReviewInfo = (e) => {
     document.getElementById("comment").value = '';
     renderReviews();
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> master
-  // Make on submit event listener and clear form and renderReviews();
+ 
 };
 
 const renderReviews = () => {
   let domString = "";
   for (let i = 0; i < reviewsArray.length; i++) {
-<<<<<<< HEAD
-    domString += `<div class="card d-flex flex-wrap" style="width: 18rem;">
-=======
     domString += `<div class="card" style="width: 14rem;">
->>>>>>> master
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
       <h3 class="card-title">${reviewsArray[i].name}</h3>
