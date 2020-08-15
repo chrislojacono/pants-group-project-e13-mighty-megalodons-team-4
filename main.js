@@ -218,14 +218,14 @@ const shopCardsArray = [
     forWhom: "Kids",
     onSale: false,
     description: "An overall for the coolest kid on the block",
-    imageUrl: "/shopImages/kidsoverall.jpeg",
+    imageUrl: "/shopImages/kidsoverall.jpg",
     price: 85.99,
   },
 ];
 
 const bioCardArray = [
   {
-    photo: "/images/Dalton_Wilcox.jpeg",
+    photo: "/images/Dalton_Wilcox.jpg",
     name: "Captain Yeehaw",
     title: "Captain Corduroy",
     bio:
@@ -446,7 +446,7 @@ const reviewsArray = [
     rating: 5,
     product: "Corduroys",
     comment: "Best I ever got.",
-    avatar: "8.jpeg",
+    avatar: "8.jpg"
   },
   {
     name: "Gabby Hayes",
@@ -464,7 +464,7 @@ const renderReviewForm = () => {
 
   avatarInputs += `
   <form class="avatar" id="avatar">
-    <input id="1" type="radio" name="avatar1" value="1" />
+    <input id="1" type="radio" name="avatar" value="1" checked="checked" />
     <label class="avatarStyle avatar-1" for="avatar"></label>
     <input id="2" type="radio" name="avatar" value="2" />
     <label class="avatarStyle avatar-2"for="avatar"></label>
@@ -493,21 +493,22 @@ const renderReviewForm = () => {
     `;
 
   reviewsFormTemplate = `
-  <form id="reviewForm">
+  <form id="reviewForm" class="reviewsInput">
   <label for="avatar">Please choose an avatar:</label>
-  <div class="form-check">
+  <div class="form-check reviewsInput">
   ${avatarInputs}
   </div>
   
-  <div class="form-group">
+  <div class="form-group reviewsInput">
     <label for="name">Name</label>
     <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
   </div>
-  <div class="form-group">
+  
+  <div class="form-group reviewsInput">
     <label for="product">Product Name</label>
     <input type="text" class="form-control" id="product" placeholder="Corduroys">
   </div>
-  <div class="form-group">
+  <div class="form-group reviewsInput">
   <label for="exampleFormControlSelect2">Give a star rating</label>
   <select class="form-control" id="numberOfStars">
     <option>1</option>
@@ -517,9 +518,9 @@ const renderReviewForm = () => {
     <option>5</option>
   </select>
 </div>
-<div class="form-group">
+<div class="form-group reviewsInput">
   <label for="exampleFormControlTextarea1">Comment</label>
-  <textarea class="form-control" id="comment" rows="3"></textarea>
+  <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
 </div>
 <div>
 <button type="submit" id="submit" class="btn btn-primary">Submit</button>
@@ -538,15 +539,11 @@ const renderReviewForm = () => {
 
 const addClicksToRadios = (e) => {
   let classes = e.target.className;
+  console.log(classes);
   let radioClass = classes.replace("avatarStyle avatar-", "");
-  var ele = document.getElementsByTagName('input');
+  //var ele = document.getElementsByTagName('input');
   document.getElementById(radioClass).checked = true;
-  if (radioClass != 1) {
-    document.getElementById(1).checked = false;
-  };
-
-
-
+  console.log(document.getElementById(radioClass));
 }
 
 
@@ -555,32 +552,17 @@ const getReviewInfo = (e) => {
   let buttonId = e.target.id;
   if (buttonId === "submit") {
     var ele = document.getElementsByTagName('input');
-
-    //If select comes out as 3 it is 4, if 0 it is 1
     let rating = document.getElementById('numberOfStars').selectedIndex + 1;
     let avatar;
-    // LOOP THROUGH EACH ELEMENT.
-
-
     let product = document.getElementById("product").value;
-
     let name = document.getElementById("name").value;
-
-
     for (let i = 0; i < ele.length; i++) {
-
       if (ele[i].type == 'radio' && ele[i].checked) {
         console.log(ele[i].checked);
         avatar = `${ele[i].id}.jpg`;
       }
-      // CHECK THE ELEMENT TYPE.
-
-
-
     }
     let comment = document.getElementById("comment").value;
-    console.log("All the values current:")
-    console.log(name, product, rating, avatar, comment);
     reviewsArray.push({
       name: name,
       rating: rating,
@@ -588,17 +570,26 @@ const getReviewInfo = (e) => {
       comment: comment,
       avatar: avatar
     });
+
+    //clear values:
+    for (let i = 0; i < ele.length; i++) {
+      if (ele[i].type == 'radio' && ele[i].checked) {
+        ele[i].checked = false;
+      }
+    }
+    document.getElementById("name").value = '';
+    document.getElementById("product").value = '';
+    document.getElementById("numberOfStars").selectedIndex = 0;
+    document.getElementById("comment").value = '';
     renderReviews();
   }
-
-
   // Make on submit event listener and clear form and renderReviews();
 };
 
 const renderReviews = () => {
   let domString = "";
   for (let i = 0; i < reviewsArray.length; i++) {
-    domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card" style="width: 14rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
       <h3 class="card-title">${reviewsArray[i].name}</h3>
