@@ -3,15 +3,15 @@ body {
   height: 100%;
   margin: 0;
 }
-                                /* LOGO */
+/* LOGO */
 .logoImage {
-    display: flex;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-#headerLogo{
-    background-color: white;
+#headerLogo {
+  background-color: white;
 }
 .review-wrapper {
   min-height: 100%;
@@ -54,9 +54,9 @@ body {
 .card {
   position: relative;
   margin: 20px;
-  -webkit-box-shadow: 6px 6px 8px 4px rgba(97,93,97,1);
-  -moz-box-shadow: 6px 6px 8px 4px rgba(97,93,97,1);
-  box-shadow: 6px 6px 8px 4px rgba(97,93,97,1);
+  -webkit-box-shadow: 6px 6px 8px 4px rgba(97, 93, 97, 1);
+  -moz-box-shadow: 6px 6px 8px 4px rgba(97, 93, 97, 1);
+  box-shadow: 6px 6px 8px 4px rgba(97, 93, 97, 1);
   text-align: center;
 }
 .img-container {
@@ -70,33 +70,29 @@ body {
   height: 50px;
   margin: 10px 30%;
 }
-.card-title{
-    text-shadow: grey 1px 1px;
+.card-title {
+  text-shadow: grey 1px 1px;
 }
-.dropdown{
-    margin-left:8%;
-    
-    
-    
+.dropdown {
+  margin-left: 8%;
 }
-.card-text{
-    margin-bottom: 50px;
+.card-text {
+  margin-bottom: 50px;
 }
-.card-price{
-    margin: 20px 20px 27px 20px;
-    position: absolute;
-    bottom: 0;
-    left: 35%;
+.card-price {
+  margin: 20px 20px 27px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 35%;
 }
-.dropdownCard{
-    margin:20px;
-    position: absolute;
-    bottom: 0;
-    left:0%;
-    text-align: center;
+.dropdownCard {
+  margin: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  text-align: center;
 }
 #sizeDropdown {
- 
   margin: 10px;
   padding: 20px;
 }
