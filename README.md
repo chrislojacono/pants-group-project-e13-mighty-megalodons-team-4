@@ -57,5 +57,5 @@ const captureNewProduct = (e) => {
 ## The Team
 [Chris LoJacono](https://github.com/chrislojacono)
 [Stephen Freeny](https://github.com/Srfreeny)
-[Will Koptheimer](https://github.com/willkotheimer)
+[Will Kotheimer](https://github.com/willkotheimer)
 [Summer Duke](https://github.com/esrduke95)
