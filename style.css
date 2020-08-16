@@ -30,6 +30,11 @@ html, body {
 #shopCardsSection{
     margin-bottom: 20px;
 }
+.logoImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .card {
     margin: 20px;
@@ -41,6 +46,7 @@ html, body {
     background-size: cover;
     background-position: center;
 }
+
 
 /*Reviews Section*/
 
@@ -107,12 +113,17 @@ width: 100%;
 #addReview {
     margin-left: 120px;
 }
-
-#searchBarInput{
-    width: 28%;
-    margin: 10px;
+#reviewsSection{
+    display: flex;
+    justify-content: center;
 }
 
+
+#searchBarInput{
+    width: 38%;
+    margin: 10px;
+}
+/* BIO SECTION */
 #bioWelcome{
     text-align: center;
     padding-top: 20px;
@@ -120,6 +131,7 @@ width: 100%;
 
 #bioCards {
     display: flex;
+    justify-content: center;
     flex-flow: row wrap;
     text-align: center;
     padding: 20px;
@@ -143,4 +155,23 @@ width: 100%;
 
 #formWrapper{
     min-height: 100%;
+    display: flex;
+    justify-content: center;
+   
+    
+}
+
+#sizeDropdown{
+    margin: 10px;
+    padding: 20px;
+}
+.onSaleHeader{
+    display: flex;
+    justify-content: center;
+}
+.onSaleImage{
+    background-image: url(/shopImages/onSale.jpeg);
+    height:220px;
+    background-size: cover;
+    background-position: center;
 }
