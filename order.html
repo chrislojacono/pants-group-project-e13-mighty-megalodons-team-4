@@ -1,205 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ORDER | Extraordinay Corduroy</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORDER | Extraordinay Corduroy</title>
 
-  <body id="orderPage">
-    <!--HEADER-->
-    <div id="headerLogo"></div>
-    <!--NAVBAR-->
-    <div id="navbar"></div>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-<!--ORDER FORM-->
-    <div id="formWrapper">
-      <form id="orderForm">
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault01">First Name</label>
-            <input type="text" class="form-control" id="validationDefault01" required>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="validationDefault05">Address Line 1</label>
-            <input type="text" class="form-control" id="validationDefault05" required>
-          </div>
+<body id="orderPage">
+  <!--HEADER-->
+  <div id="headerLogo"></div>
+  <!--NAVBAR-->
+  <div id="navbar"></div>
+
+  <!--ORDER FORM-->
+  <div id="formWrapper">
+    <form id="orderForm">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="validationDefault01">First Name</label>
+          <input type="text" class="form-control" id="validationDefault01" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault02">Last Name</label>
-            <input type="text" class="form-control" id="validationDefault02" required>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="validationDefault06">Address Line 2</label>
-            <input type="text" class="form-control" id="validationDefault06">
-          </div>
+        <div class="form-group col-md-4">
+          <label for="validationDefault05">Address Line 1</label>
+          <input type="text" class="form-control" id="validationDefault05" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault03">Email</label>
-            <input type="email" class="form-control" id="validationDefault03" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault07">City</label>
-            <input type="text" class="form-control" id="validationDefault07" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault08">State</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="validationDefault02">Last Name</label>
+          <input type="text" class="form-control" id="validationDefault02" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault04">Daytime Phone</label>
-            <input type="tel" class="form-control" id="validationDefault04" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault09">Zipcode</label>
-            <input type="text" class="form-control" id="validationDefault09" required>
-          </div>
+        <div class="form-group col-md-4">
+          <label for="validationDefault06">Address Line 2</label>
+          <input type="text" class="form-control" id="validationDefault06">
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="validationDefault03">Email</label>
+          <input type="email" class="form-control" id="validationDefault03" required>
         </div>
-        <!-- <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault07">City</label>
+          <input type="text" class="form-control" id="validationDefault07" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault08">State</label>
+          <input type="text" class="form-control" id="validationDefault08" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-        </div> -->
-      </form>  
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="validationDefault04">Daytime Phone</label>
+          <input type="tel" class="form-control" id="validationDefault04" required>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault09">Zipcode</label>
+          <input type="text" class="form-control" id="validationDefault09" required>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault12">Shipping</label>
+          <select class="custom-select" id="shipping" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Ground: Free!</option>
+            <option>Express: +$13.95</option>
+            <option>Overnight: $22.95</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      
+    </form>
+    <div id="orderButtons">
+      <button type="button" class="btn btn-primary" id="calculateButton">Calculate Order Total</button>
+      <div id="submitButton">
+        <button type="button" class="btn btn-primary">Submit Order</button>
     </div>
+    <div id="calcTotal"></div>
+  </div>
+</div>
 
-<!--FOOTER-->
-    
-    <footer id="footerInput"></footer>
-  
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script src="main.js"></script>
-  </body>
+  <!--FOOTER-->
+
+  <footer id="footerInput"></footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
