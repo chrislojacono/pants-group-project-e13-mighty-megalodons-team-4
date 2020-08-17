@@ -29,67 +29,6 @@
           <label for="validationDefault05">Address Line 1</label>
           <input type="text" class="form-control" id="validationDefault05" required>
         </div>
-<<<<<<< HEAD
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault03">Email</label>
-            <input type="email" class="form-control" id="validationDefault03" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault07">City</label>
-            <input type="text" class="form-control" id="validationDefault07" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault08">State</label>
-            <select class="custom-select" id="selectState" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option id="option"></option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="validationDefault04">Daytime Phone</label>
-            <input type="tel" class="form-control" id="validationDefault04" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault09">Zipcode</label>
-            <input type="text" class="form-control" id="validationDefault09" required>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault13">Shipping</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="selectQuantity" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-=======
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
@@ -112,10 +51,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="validationDefault08">State</label>
-          <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-          </select>
+          <input type="text" class="form-control" id="validationDefault08" required>
         </div>
       </div>
       <div class="form-row">
@@ -126,128 +62,147 @@
         <div class="form-group col-md-2">
           <label for="validationDefault09">Zipcode</label>
           <input type="text" class="form-control" id="validationDefault09" required>
->>>>>>> master
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault12">Shipping</label>
+          <select class="custom-select" id="shipping" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Ground: Free!</option>
+            <option>Express: +$13.95</option>
+            <option>Overnight: $22.95</option>
+          </select>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-2">
           <label for="validationDefault10">Style #</label>
-          <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
             <option selected disabled value="">Choose...</option>
-            <option>...</option>
           </select>
         </div>
         <div class="form-group col-md-2">
           <label for="validationDefault11">Size</label>
-          <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
             <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
           </select>
         </div>
         <div class="form-group col-md-2">
           <label for="validationDefault11">Color</label>
-          <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
             <option selected disabled value="">Choose...</option>
           </select>
         </div>
         <div class="form-group col-md-2">
-          <label for="validationDefault11">Quantity</label>
-          <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
             <option selected disabled value="">Choose...</option>
           </select>
         </div>
-      </div>
-      <!-- <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label for="validationDefault10">Style #</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Size</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Color</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="validationDefault11">Quantity</label>
-            <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-              <option selected disabled value="">Choose...</option>
-            </select>
-          </div>
-        </div> -->
-<<<<<<< HEAD
-      </form>
-      <div id="orderButtons">
-        <button type="button" class="btn btn-primary" id="calculateButton">Calculate Order Total</button>
-        <div id="submitButton">
-          <button type="button" class="btn btn-primary">Submit Order</button>
       </div>
-    </div>
-=======
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="validationDefault10">Style #</label>
+          <select class="custom-select" id="selectStyle" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Size</label>
+          <select class="custom-select" id="selectSize" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Color</label>
+          <select class="custom-select" id="selectColor" aria-describedby="validationServer04Feedback" required>
+            <option selected disabled value="">Choose...</option>
+          </select>
+        </div>
+        <!-- we dont actually have a color option so maybe this can display the price instead? -->
+        <div class="form-group col-md-2">
+          <label for="validationDefault11">Quantity</label>
+          <input type="text" class="form-control" id="validationDefault11" required>
+        </div>
+      </div>
+      
     </form>
+    <div id="orderButtons">
+      <button type="button" class="btn btn-primary" id="calculateButton">Calculate Order Total</button>
+      <div id="submitButton">
+        <button type="button" class="btn btn-primary">Submit Order</button>
+    </div>
+    <div id="calcTotal"></div>
   </div>
+</div>
 
   <!--FOOTER-->
 
@@ -264,6 +219,5 @@
     crossorigin="anonymous"></script>
   <script src="main.js"></script>
 </body>
->>>>>>> master
 
 </html>

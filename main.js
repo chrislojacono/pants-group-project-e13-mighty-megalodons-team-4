@@ -341,7 +341,7 @@ const buttonEvents = () => {
   }
   
   if (document.getElementById('orderButtons')) {
-    // document.getElementById('calculateButton').addEventListener('click', calculateTotal)
+    document.getElementById('calculateButton').addEventListener('click', calculateTotal);
     document.getElementById('submitButton').addEventListener('click', submitOrderForm);
   };
 
@@ -536,16 +536,20 @@ const populateForm = () => {
         txt = document.createTextNode(shopCardsArray[i].style);
       option.appendChild(txt);
       selectStyle.insertBefore(option, selectStyle.lastChild);
-      
-      if (document.getElementById('selectSize')) {
-        let option = document.createElement("OPTION"),
-        txt = document.createTextNode(shopCardsArray[i].forWhom);
-      option.appendChild(txt);
-      selectSize.insertBefore(option, selectSize.lastChild);
-      }
-    }
-}
 
+      // switch(formPopulation) {
+        
+      // }
+      
+      // const input = document.querySelector('input');
+      // const log = document.getElementById('calcTotal');
+      
+      // input.addEventListener('input', updateValue);
+      // function updateValue(e) {
+      //   log.textContent = e.target.value;
+      // }
+  }
+}
 
 // selectElement.addEventListener('change', (event) => {
 //   const result = document.querySelector('selectSize');
@@ -560,12 +564,12 @@ const canPopulateForm = () => {
 
 const submitOrderForm = (event) => {
   document.getElementById('orderForm').reset();
+  alert('Thank you for your order!');
 };
 
 
 const calculateTotal = (event) => {
   
-
 }
 
 
@@ -828,6 +832,7 @@ const init = () => {
   renderLogo();
   buttonEvents();
   canPopulateForm();
+  calculateTotal();
 };
 
 init();
