@@ -336,6 +336,8 @@ const buttonEvents = () => {
   }
   if (document.getElementById("orderPage")) {
     renderFooter();
+    calculateTotal();
+    canPopulateForm();
     document.querySelector(".order-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
@@ -831,8 +833,6 @@ const init = () => {
   renderNavbar();
   renderLogo();
   buttonEvents();
-  canPopulateForm();
-  calculateTotal();
 };
 
 init();
