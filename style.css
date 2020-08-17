@@ -217,14 +217,14 @@ span.fa.fa-star.checked
     
   }
 
-  .star-container {
+.star-container {
     text-align: center;
     margin: 0 auto;
     padding: 10px;
     position: absolute;
     bottom: 5px;
     left: 50px;
-  }
+}
 
 /* BIO SECTION */
 #bioWelcome {
@@ -255,10 +255,21 @@ span.fa.fa-star.checked
   padding-top: 20px;
 }
 
-#formWrapper {
-  min-height: 100%;
+.container {
   display: flex;
   justify-content: center;
+}
+
+#formWrapper {
+  padding: 15px;
+}
+/* #orderForm {
+
+} */
+#orderButtons {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
 }
 
 #sizeDropdown {

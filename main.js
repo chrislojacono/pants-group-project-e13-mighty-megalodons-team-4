@@ -339,7 +339,13 @@ const buttonEvents = () => {
     document.querySelector(".order-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
-};
+  
+  if (document.getElementById('orderButtons')) {
+    document.getElementById('calculateButton').addEventListener('click', calculateTotal);
+    document.getElementById('submitButton').addEventListener('click', submitOrderForm);
+  };
+
+}
 
 const alertUser = (e) => {
   const buttonType = e.target.id;
@@ -516,6 +522,57 @@ const renderAllCards = () => {
   }
   printToDom("shopCardsSection", domString);
 };
+
+//ORDER FORM JS
+
+const populateForm = () => {
+  const selectStyle = document.getElementById('selectStyle');
+  const selectSize = document.getElementById('selectSize');
+  const selectColor = document.getElementById('selectColor');
+  const selectQuantity = document.getElementById('selectQuantity');
+    
+    for (let i = 0; i < shopCardsArray.length; i++) {
+      let option = document.createElement("OPTION"),
+        txt = document.createTextNode(shopCardsArray[i].style);
+      option.appendChild(txt);
+      selectStyle.insertBefore(option, selectStyle.lastChild);
+
+      // switch(formPopulation) {
+        
+      // }
+      
+      // const input = document.querySelector('input');
+      // const log = document.getElementById('calcTotal');
+      
+      // input.addEventListener('input', updateValue);
+      // function updateValue(e) {
+      //   log.textContent = e.target.value;
+      // }
+  }
+}
+
+// selectElement.addEventListener('change', (event) => {
+//   const result = document.querySelector('selectSize');
+//   result.textContent = `You like ${event.target.value}`;
+// });
+
+const canPopulateForm = () => {
+  if (document.getElementById('orderForm')) {
+    populateForm();
+  }
+}
+
+const submitOrderForm = (event) => {
+  document.getElementById('orderForm').reset();
+  alert('Thank you for your order!');
+};
+
+
+const calculateTotal = (event) => {
+  
+}
+
+
 //  REVIEW SECTION
 const reviewsArray = [
   {
@@ -774,6 +831,8 @@ const init = () => {
   renderNavbar();
   renderLogo();
   buttonEvents();
+  canPopulateForm();
+  calculateTotal();
 };
 
 init();
