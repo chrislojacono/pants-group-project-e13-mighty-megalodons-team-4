@@ -18,11 +18,11 @@ const renderNavbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-        <a id="shopsAll" class="nav-link" href="/shop.html">Shop</a>
-        <a class="nav-link" href="/bios.html">About Us</a>
-        <a class="nav-link" href="/reviews.html">Reviews</a>
-        <a class="nav-link" href="/order.html">Order</a>
+        <a class="nav-link index-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+        <a id="shopsAll" class="nav-link  shops-link" href="/shop.html">Shop</a>
+        <a class="nav-link bios-link" href="/bios.html">About Us</a>
+        <a class="nav-link reviews-link" href="/reviews.html">Reviews</a>
+        <a class="nav-link order-link" href="/order.html">Order</a>
         
       </div>
     </div>
@@ -283,9 +283,11 @@ const bioCardArray = [
 // ALL CLICKS AND SINGLE PAGE FUNCTION CALLS
 const buttonEvents = () => {
   if (document.getElementById("shop")) {
+    document.querySelector(".shops-link").style.backgroundColor = '#B09182';
     renderShopCards(shopCardsArray);
 
     renderShopFooter();
+
     document
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
@@ -303,16 +305,19 @@ const buttonEvents = () => {
     renderReviews();
     renderReviewForm();
     renderFooter();
+    document.querySelector(".reviews-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("bioPage")) {
     renderBioCards();
     renderFooter();
+    document.querySelector(".bios-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("homePage")) {
     renderFooter();
     onSaleCarosel();
+    document.querySelector(".index-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("dropdown")) {
@@ -331,6 +336,7 @@ const buttonEvents = () => {
   }
   if (document.getElementById("orderPage")) {
     renderFooter();
+    document.querySelector(".order-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
 };
@@ -695,8 +701,10 @@ const renderReviews = () => {
     domString += `<div class="card" style="width: 14rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
-      <h3 class="card-title">${reviewsArray[i].name}</h3>
-      <p class="card-text">${reviewsArray[i].product}</p>
+    <div class="name-product-holder">
+      <h4 class="card-title">${reviewsArray[i].name}</h4>
+      <div class="card-text">${reviewsArray[i].product}</div>
+    </div>
       <div class="rating-container">
       <h5 class="review-comment">${reviewsArray[i].comment}</h5>
       <div class="star-container">
@@ -711,6 +719,7 @@ const renderReviews = () => {
     starString = '';
   }
   printToDom("reviewsSection", domString);
+
 };
 
 

@@ -6,7 +6,7 @@ body {
 /* LOGO */
 .logoImage {
   display: flex;
-  width: 50%;
+  width: 35%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,6 +33,10 @@ body {
   float: right;
 }
 
+.name-product-holder {
+    height: 90px;
+}
+
 /* SHOP */
 #shop,#homePage, #bioPage, #reviews, #orderPage {
   background-color: rgb(238, 226, 210);
@@ -46,12 +50,6 @@ body {
   margin-bottom: 20px;
 }
 
-.logoImage {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
 .card {
   position: relative;
   margin: 20px;
@@ -279,3 +277,14 @@ span.fa.fa-star.checked
   margin: 10px auto 10px auto;
   /* padding:50px; */
 }
+
+/*navbar*/
+
+.nav-link:active {
+    color: #FFC857;
+}
+.nav-link {
+    color: #581F18;
+}
+
+
