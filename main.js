@@ -757,7 +757,7 @@ const renderReviews = () => {
         starString += `<span class="fa fa-star"></span>`;
       }
     }
-    domString += `<div class="card" style="width: 14rem;">
+    domString += `<div class="card" style="width: 18rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
     <div class="name-product-holder">

@@ -309,3 +309,11 @@ span.fa.fa-star.checked
 #calculateButton{
     margin-right: 30px;
 }
+.carouselDiv{
+  min-height: 100%;
+  margin-bottom: 100px;
+}
+.saleText{
+  font-style: italic;
+  text-align: center;
+}
