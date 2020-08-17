@@ -3,10 +3,10 @@ const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
 };
-
+// GLOBAL ITEMS NAVBAR/FOOTER
 const renderLogo = () => {
-  let domString = `<div class="logo">
-  <img src=/images/KIDROCKS.png alt="Sweet Logo">
+  let domString = `<div class="logo d-flex">
+  <img class="logoImage" src=/images/KIDROCKS.png alt="Sweet Logo">
   </div>`;
   printToDom("headerLogo", domString);
 };
@@ -18,11 +18,11 @@ const renderNavbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-        <a id="shopsAll" class="nav-link" href="/shop.html">Shop</a>
-        <a class="nav-link" href="/bios.html">About Us</a>
-        <a class="nav-link" href="/reviews.html">Reviews</a>
-        <a class="nav-link" href="/order.html">Order</a>
+        <a class="nav-link index-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+        <a id="shopsAll" class="nav-link  shops-link" href="/shop.html">Shop</a>
+        <a class="nav-link bios-link" href="/bios.html">About Us</a>
+        <a class="nav-link reviews-link" href="/reviews.html">Reviews</a>
+        <a class="nav-link order-link" href="/order.html">Order</a>
         
       </div>
     </div>
@@ -89,30 +89,44 @@ const renderShopFooter = () => {
 
 const shopCardsArray = [
   {
+    style: "Womens Mid Rise",
+    forWhom: "Women",
+    onSale: true,
+    description:
+      "A figure-balancing shape in soft-yet-substantial corduroy. Perfect for anyone",
+    imageUrl: "/shopImages/dogtown.jpeg",
+    price: 65.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
+  },
+  {
     style: "Forester Corduroys",
     forWhom: "Kids",
-    onSale: true,
+    onSale: false,
     description: "An overall for the coolest kid on the block",
-    imageUrl: "/shopImages/kidsgreen.jpeg",
+    imageUrl: "/shopImages/newforest.jpg",
     price: 34.99,
+    size: [" Small ", " Medium ", " Large"],
   },
   {
     style: "Shade Of Brown",
     forWhom: "Men",
-    onSale: true,
+    onSale: false,
     description:
       "Featuring a slim and straight fit with a medium rise and a straight leg, the men's cord jeans offer a tailored take on a classic cord, topping it off with signature trims.",
-    imageUrl: "/shopImages/shadeofbrown.jpg",
+    imageUrl: "/shopImages/betterpic.jpg",
     price: 39.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
+
   {
     style: "The Party Pants",
     forWhom: "Women",
     onSale: false,
     description:
-      "The ultimate party pants. Instantly become the life of the party with these rockin corduroys",
-    imageUrl: "/shopImages/partypants.jpeg",
+      "The ultimate party pants. Instantly become the life of the party with these rockin corduroys featuring a classic bellbottom style.",
+    imageUrl: "/shopImages/bellbottom.jpg",
     price: 99.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
   {
     style: "Cowboy's Overall",
@@ -122,24 +136,18 @@ const shopCardsArray = [
       "The rowdiest overalls in all the west. From horseback to stick-ups at the bank, these corduroys will do it all!",
     imageUrl: "/shopImages/cowboy.jpg",
     price: 33.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
-  {
-    style: "Womens Mid Rise",
-    forWhom: "Women",
-    onSale: false,
-    description:
-      "A figure-balancing shape in soft-yet-substantial corduroy. Perfect for anyone",
-    imageUrl: "/shopImages/wmidrise.jpeg",
-    price: 65.99,
-  },
+
   {
     style: "The Johna Wayne",
     forWhom: "Women",
-    onSale: false,
+    onSale: true,
     description:
       "The ultimate ribcage cord flare jean in camel. Ready to take over the wild west!",
     imageUrl: "/shopImages/womensbrown.jpeg",
     price: 44.99,
+    size: [" XS ", " Small ", " Medium ", " Large "],
   },
   {
     style: "Wild West Corduroys",
@@ -149,6 +157,17 @@ const shopCardsArray = [
       "Saying, cute, comfortable, and durable pants, doesn't have to mean three different pairs. DOn't miss out!",
     imageUrl: "/shopImages/fittedwomens.jpg",
     price: 45.99,
+    size: [" Small ", " Medium ", " Large"],
+  },
+  {
+    style: "The Casual Corduroys",
+    forWhom: "Men",
+    onSale: true,
+    description:
+      "The Corduroys that are perfect for just kicking back and relaxing! Where these after a long day at work for the ultimate comfort feel.",
+    imageUrl: "/shopImages/elastic.jpg",
+    price: 45.99,
+    size: [" Small ", " Medium ", " Large"],
   },
   {
     style: "Root Tootin Roys",
@@ -156,8 +175,9 @@ const shopCardsArray = [
     onSale: false,
     description:
       "Your favorite Sport Knit Pants in supple knit corduroy. Comfortable and cool.",
-    imageUrl: "/shopImages/gold.jpeg",
+    imageUrl: "/shopImages/roottootin2.jpg",
     price: 81.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
   {
     style: "Oregon Trail Roys",
@@ -167,6 +187,7 @@ const shopCardsArray = [
       "If these corduroys can survive the oregon trail, then so can you!",
     imageUrl: "/shopImages/oregontrail.jpg",
     price: 85.99,
+    size: [" Small ", " Medium ", " Large "],
   },
   {
     style: "Navy Cords",
@@ -176,6 +197,7 @@ const shopCardsArray = [
       "A cool Navy blue, with functional pockets and a style that everyone will enjoy",
     imageUrl: "/shopImages/navymens.jpeg",
     price: 25.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
   {
     style: "The Classic",
@@ -183,26 +205,29 @@ const shopCardsArray = [
     onSale: false,
     description:
       "Throwback cord and modern cut meet in the daggers pigment corduroy jeans.",
-    imageUrl: "/shopImages/classiccorduroy.jpg",
+    imageUrl: "/shopImages/newclassic.jpeg",
     price: 69.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
   {
     style: "Cool Cats",
     forWhom: "Kids",
-    onSale: true,
+    onSale: false,
     description:
       "Corduroys that will make your kids WAY cooler than you. You have been warned.",
-    imageUrl: "/shopImages/kids2.jpeg",
+    imageUrl: "/shopImages/kidscords22.jpg",
     price: 39.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
   {
     style: "Cord Shorts",
     forWhom: "Women",
-    onSale: true,
+    onSale: false,
     description:
       "Corduroy shorts with enough pockets fpr all of your essentials!",
-    imageUrl: "/shopImages/shorts.jpeg",
+    imageUrl: "/shopImages/cordshorts2.jpg",
     price: 64.99,
+    size: [" Small ", " Medium ", " XL "],
   },
   {
     style: "Real Teal",
@@ -212,14 +237,16 @@ const shopCardsArray = [
       "Designed with 5-pocket denim styling, details include a zip fly with a metal button closure, coin pocket at the left hip and metal rivets at the pockets.",
     imageUrl: "/shopImages/realteal.jpg",
     price: 59.99,
+    size: [" Medium ", " Large ", " XL "],
   },
   {
     style: "Overall Cords",
     forWhom: "Kids",
     onSale: false,
-    description: "An overall for the coolest kid on the block",
-    imageUrl: "/shopImages/kidsoverall.jpg",
+    description: "An overall with jersery knit lining for the coolest kid on the block.",
+    imageUrl: "/shopImages/jersey.jpg",
     price: 85.99,
+    size: [" Small ", " Medium ", " Large ", " XL "],
   },
 ];
 
@@ -253,11 +280,14 @@ const bioCardArray = [
       "User generated content in real-time will have multiple touchpoints for offshoring.",
   },
 ];
-
+// ALL CLICKS AND SINGLE PAGE FUNCTION CALLS
 const buttonEvents = () => {
   if (document.getElementById("shop")) {
+    document.querySelector(".shops-link").style.backgroundColor = '#B09182';
     renderShopCards(shopCardsArray);
+
     renderShopFooter();
+
     document
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
@@ -266,23 +296,28 @@ const buttonEvents = () => {
       .addEventListener("click", captureNewProduct);
     document
       .getElementById("shopFooterInput")
-      .addEventListener("click", renderShopCardsOnSubmit);
-    document.getElementById("shopFooterInput").addEventListener("click", alertUser)
-
+      .addEventListener("click", renderAllCards);
+    document
+      .getElementById("shopFooterInput")
+      .addEventListener("click", alertUser);
   }
   if (document.getElementById("reviews")) {
     renderReviews();
     renderReviewForm();
     renderFooter();
+    document.querySelector(".reviews-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("bioPage")) {
     renderBioCards();
     renderFooter();
+    document.querySelector(".bios-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("homePage")) {
     renderFooter();
+    onSaleCarosel();
+    document.querySelector(".index-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("dropdown")) {
@@ -299,8 +334,9 @@ const buttonEvents = () => {
       .getElementById("kidsButton")
       .addEventListener("click", renderKidsCards);
   }
-  if (document.getElementById('orderPage')) {
+  if (document.getElementById("orderPage")) {
     renderFooter();
+    document.querySelector(".order-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   
@@ -313,16 +349,52 @@ const buttonEvents = () => {
 
 const alertUser = (e) => {
   const buttonType = e.target.id;
-  let emailInput1 = document.getElementById('emailInput').value;
-  if (buttonType === 'email') {
-    if (emailInput1 === '') {
+  let emailInput1 = document.getElementById("emailInput").value;
+  if (buttonType === "email") {
+    if (emailInput1 === "") {
       alert("Please enter an E-mail!");
     } else {
       alert("Thank you for subscribing");
     }
   }
-}
+};
 
+// HOMEPAGE CAROSEL
+const onSaleCarosel = () => {
+  let domString = "";
+  let saleBoolean = true
+  domString += `<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">`;
+
+  for (let i = 0; i < shopCardsArray.length; i++) {
+
+    if (shopCardsArray[i].onSale && saleBoolean) {
+      domString += `<div class="carousel-item active">
+                      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
+                    </div>`;
+
+      saleBoolean = false;
+    } else if (shopCardsArray[i].onSale) {
+      domString += `<div class="carousel-item">
+                      <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
+                    </div>`;
+    }
+
+  }
+
+  domString += `</div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>`;
+  printToDom("onSale", domString);
+};
+// SHOP PAGE
 const renderShopCards = (array) => {
   let domString = "";
   for (let i = 0; i < array.length; i++) {
@@ -333,32 +405,22 @@ const renderShopCards = (array) => {
       <h3 class="card-title">${array[i].style}</h3>
       <p class="card-text">${array[i].description}</p>
       <h5 class="card-price">$${array[i].price}</h5>
+      <div class="dropdownCard">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sizes
+      </button>
+      <div id="sizeDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      ${array[i].size}
+      </div>
+      </div>
     </div>
   </div>
   `;
   }
-  printToDom("shopCardsSection", domString);
 
-};
-const renderShopCardsOnSubmit = () => {
-  let domString = "";
-  for (let i = 0; i < shopCardsArray.length; i++) {
-    domString += `<div class="card" style="width: 18rem;">
-    <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">${shopCardsArray[i].style}</h3>
-      <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
-    </div>
-  </div>
-  `;
-  }
   printToDom("shopCardsSection", domString);
-
 };
 const renderMensCards = () => {
-
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     if (shopCardsArray[i].forWhom === "Men") {
@@ -369,6 +431,14 @@ const renderMensCards = () => {
         <h3 class="card-title">${shopCardsArray[i].style}</h3>
         <p class="card-text">${shopCardsArray[i].description}</p>
         <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+        <div class="dropdownCard">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sizes
+        </button>
+        <div id="sizeDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        ${shopCardsArray[i].size}
+        </div>
+        </div>
       </div>
     </div>
     `;
@@ -383,13 +453,21 @@ const renderWomensCards = () => {
       domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
-    <div class="card-body">
-      <h3 class="card-title">${shopCardsArray[i].style}</h3>
-      <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      <div class="card-body">
+        <h3 class="card-title">${shopCardsArray[i].style}</h3>
+        <p class="card-text">${shopCardsArray[i].description}</p>
+        <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+        <div class="dropdownCard">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sizes
+        </button>
+        <div id="sizeDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        ${shopCardsArray[i].size}
+        </div>
+        </div>
+      </div>
     </div>
-  </div>
-  `;
+    `;
     }
     printToDom("shopCardsSection", domString);
   }
@@ -401,13 +479,21 @@ const renderKidsCards = () => {
       domString += `<div class="card" style="width: 18rem;">
       <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
       </div>
-    <div class="card-body">
-      <h3 class="card-title">${shopCardsArray[i].style}</h3>
-      <p class="card-text">${shopCardsArray[i].description}</p>
-      <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      <div class="card-body">
+        <h3 class="card-title">${shopCardsArray[i].style}</h3>
+        <p class="card-text">${shopCardsArray[i].description}</p>
+        <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+        <div class="dropdownCard">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sizes
+        </button>
+        <div id="sizeDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        ${shopCardsArray[i].size}
+        </div>
+        </div>
+      </div>
     </div>
-  </div>
-  `;
+    `;
     }
     printToDom("shopCardsSection", domString);
   }
@@ -416,12 +502,20 @@ const renderAllCards = () => {
   let domString = "";
   for (let i = 0; i < shopCardsArray.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
-      <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
-      </div>
+    <div class="img-container" style="background-image: url(${shopCardsArray[i].imageUrl})">
+    </div>
     <div class="card-body">
       <h3 class="card-title">${shopCardsArray[i].style}</h3>
       <p class="card-text">${shopCardsArray[i].description}</p>
       <h5 class="card-price">$${shopCardsArray[i].price}</h5>
+      <div class="dropdownCard">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sizes
+      </button>
+      <div id="sizeDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      ${shopCardsArray[i].size}
+      </div>
+      </div>
     </div>
   </div>
   `;
@@ -475,6 +569,7 @@ const calculateTotal = (event) => {
 }
 
 
+//  REVIEW SECTION
 const reviewsArray = [
   {
     name: "John Wayne",
@@ -511,7 +606,6 @@ const renderReviewForm = () => {
   let reviewsFormTemplate = "";
   let avatarInputs = "";
 
-
   avatarInputs += `
   <form class="avatar" id="avatar">
     <input id="1" type="radio" name="avatar" value="1" checked="checked" />
@@ -543,49 +637,56 @@ const renderReviewForm = () => {
     `;
 
   reviewsFormTemplate = `
-  <form id="reviewForm" class="reviewsInput">
-  <label for="avatar">Please choose an avatar:</label>
-  <div class="form-check reviewsInput">
-  ${avatarInputs}
-  </div>
   
-  <div class="form-group reviewsInput">
-    <label for="name">Name</label>
-    <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
+    <form id="reviewForm" class="reviewsInput">
+    <h5 class="reviews-titles">Give your own review!</h5>
+    <h6 class="reviews-titles">To start, choose an avatar:</h6>
+    <div class="form-check reviewsInput">
+    ${avatarInputs}
+    </div>
+    <div class="form-group reviewsInput">
+    <h6 class="reviews-titles">Now we'll just be requesting a little information...</h6></label>
+    </div>
+    <div class="form-group reviewsInput">
+      <label for="name">Name</label>
+      <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
+    </div>
+    
+    <div class="form-group reviewsInput">
+      <label for="product">Product Name</label>
+      <input type="text" class="form-control" id="product" placeholder="Corduroys">
+    </div>
+    <div class="form-group reviewsInput">
+    <label for="exampleFormControlSelect2">Give a star rating</label>
+    <select class="form-control" id="numberOfStars">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  
-  <div class="form-group reviewsInput">
-    <label for="product">Product Name</label>
-    <input type="text" class="form-control" id="product" placeholder="Corduroys">
+  <div class="container">
+    <span id="rateMe4"  class="feedback"></span>
   </div>
   <div class="form-group reviewsInput">
-  <label for="exampleFormControlSelect2">Give a star rating</label>
-  <select class="form-control" id="numberOfStars">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-</div>
-<div class="form-group reviewsInput">
-  <label for="exampleFormControlTextarea1">Comment</label>
-  <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
-</div>
-<div class="form-group reviewsInput">
-<button type="submit" id="submit" class="btn btn-primary">Submit</button>
-</div>
-<div class="shim"></div>
-</form>
-  `;
+    <label for="exampleFormControlTextarea1">Comment</label>
+    <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
+  </div>
+  <div class="form-group reviewsInput">
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="shim"></div>
+  </form>
+    `;
+
 
   printToDom("reviewFormDiv", reviewsFormTemplate);
-  document.getElementById("submit").addEventListener('click', getReviewInfo);
-  document.getElementById("reviewForm").addEventListener('click', addClicksToRadios);
-
-
-}
-
+  document.getElementById("submit").addEventListener("click", getReviewInfo);
+  document
+    .getElementById("reviewForm")
+    .addEventListener("click", addClicksToRadios);
+};
 
 const addClicksToRadios = (e) => {
   let classes = e.target.className;
@@ -595,7 +696,6 @@ const addClicksToRadios = (e) => {
   document.getElementById(radioClass).checked = true;
   console.log(document.getElementById(radioClass));
 }
-
 
 const getReviewInfo = (e) => {
   e.preventDefault();
@@ -618,7 +718,7 @@ const getReviewInfo = (e) => {
       rating: rating,
       product: product,
       comment: comment,
-      avatar: avatar
+      avatar: avatar,
     });
 
     //clear values:
@@ -633,31 +733,50 @@ const getReviewInfo = (e) => {
     document.getElementById("comment").value = '';
     renderReviews();
   }
-  // Make on submit event listener and clear form and renderReviews();
+
+
 };
 
 const renderReviews = () => {
+  let starString = "";
   let domString = "";
+
   for (let i = 0; i < reviewsArray.length; i++) {
+    starString += "";
+    for (let point = 1; point <= reviewsArray[i].rating; point++) {
+
+      if (point <= reviewsArray[i].rating) {
+        starString += `<span class="fa fa-star checked"></span>`;
+      } else {
+        starString += `<span class="fa fa-star"></span>`;
+      }
+    }
     domString += `<div class="card" style="width: 14rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
-      <h3 class="card-title">${reviewsArray[i].name}</h3>
-      <p class="card-text">${reviewsArray[i].product}</p>
-      <h5 class="card-price">${reviewsArray[i].comment}</h5>
-      <div class="row lead">
-        <div id="stars" class="starrr"></div>
-        You gave a rating of <span id="count">${reviewsArray[i].rating}</span> star(s)
+    <div class="name-product-holder">
+      <h4 class="card-title">${reviewsArray[i].name}</h4>
+      <div class="card-text">${reviewsArray[i].product}</div>
+    </div>
+      <div class="rating-container">
+      <h5 class="review-comment">${reviewsArray[i].comment}</h5>
+      <div class="star-container">
+      <div id="rating-title">Rating:</div>
+      <div id="stars" class="starrr">${starString}</div>
       </div>
+        </div>
     </div>
   </div>
   
   `;
+    starString = '';
   }
   printToDom("reviewsSection", domString);
 
 };
 
+
+// BIO PAGE
 const renderBioCards = () => {
   let domString = "";
   for (let i = 0; i < bioCardArray.length; i++) {
@@ -672,7 +791,7 @@ const renderBioCards = () => {
   }
   printToDom("bioCards", domString);
 };
-
+// SHOP FUNCTIONALITY
 const searchFunction = (e) => {
   const searchId = e.target.value.toLowerCase();
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
@@ -683,8 +802,8 @@ const searchFunction = (e) => {
   });
   renderShopCards(filteredPants);
 };
-const captureNewProduct = (e) => {
 
+const captureNewProduct = (e) => {
   let buttonId = e.target.id;
   if (buttonId === "addCardToShopButton") {
     const pantsStyle = document.querySelector("#styleInput").value;
@@ -702,7 +821,6 @@ const captureNewProduct = (e) => {
     };
     shopCardsArray.push(newCardObject);
   }
-
 };
 
 const init = () => {
