@@ -230,6 +230,8 @@ span.fa.fa-star.checked
 #bioWelcome {
   text-align: center;
   padding-top: 20px;
+  font-size: 30px;
+  color: #581F18; 
 }
 
 #bioCards {
