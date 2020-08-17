@@ -6,7 +6,7 @@ body {
 /* LOGO */
 .logoImage {
   display: flex;
-  width: 50%;
+  width: 35%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -24,16 +24,21 @@ body {
 }
 
 .reviewsInput {
-  width: 75%;
-  margin: 0 auto;
+  width: 64%;
+  margin: 25px auto;
+  padding-bottom: 15px;
 }
 
 .reviewsInput > button[type="submit"] {
-  padding-top: 20px;
+  float: right;
+}
+
+.name-product-holder {
+    height: 90px;
 }
 
 /* SHOP */
-#shop {
+#shop,#homePage, #bioPage, #reviews, #orderPage {
   background-color: rgb(238, 226, 210);
 }
 .searchSection {
@@ -45,12 +50,6 @@ body {
   margin-bottom: 20px;
 }
 
-.logoImage {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
 .card {
   position: relative;
   margin: 20px;
@@ -191,6 +190,42 @@ input[type="radio"] {
   justify-content: center;
 }
 
+span.fa.fa-star.checked 
+{
+        color: orange;  
+}
+
+.rating-container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid rgb(238, 226, 210);
+    border-radius: 30px;
+    height: 280px;
+    position: relative;
+}
+
+.reviews-titles {
+    text-align:center;
+    margin: 0 auto;
+}
+
+.review-comment {
+    margin: 20px 20px 27px 20px;
+    height: 200px;
+    overflow: hidden;
+    
+  }
+
+  .star-container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 50px;
+  }
+
 /* BIO SECTION */
 #bioWelcome {
   text-align: center;
@@ -242,3 +277,14 @@ input[type="radio"] {
   margin: 10px auto 10px auto;
   /* padding:50px; */
 }
+
+/*navbar*/
+
+.nav-link:active {
+    color: #FFC857;
+}
+.nav-link {
+    color: #581F18;
+}
+
+

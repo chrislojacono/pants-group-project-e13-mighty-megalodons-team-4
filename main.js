@@ -3,7 +3,7 @@ const printToDom = (divID, textToPrint) => {
   const selectedDiv = document.getElementById(divID);
   selectedDiv.innerHTML = textToPrint;
 };
-                // GLOBAL ITEMS NAVBAR/FOOTER
+// GLOBAL ITEMS NAVBAR/FOOTER
 const renderLogo = () => {
   let domString = `<div class="logo d-flex">
   <img class="logoImage" src=/images/KIDROCKS.png alt="Sweet Logo">
@@ -18,11 +18,11 @@ const renderNavbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-        <a id="shopsAll" class="nav-link" href="/shop.html">Shop</a>
-        <a class="nav-link" href="/bios.html">About Us</a>
-        <a class="nav-link" href="/reviews.html">Reviews</a>
-        <a class="nav-link" href="/order.html">Order</a>
+        <a class="nav-link index-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+        <a id="shopsAll" class="nav-link  shops-link" href="/shop.html">Shop</a>
+        <a class="nav-link bios-link" href="/bios.html">About Us</a>
+        <a class="nav-link reviews-link" href="/reviews.html">Reviews</a>
+        <a class="nav-link order-link" href="/order.html">Order</a>
         
       </div>
     </div>
@@ -138,7 +138,7 @@ const shopCardsArray = [
     price: 33.99,
     size: [" Small ", " Medium ", " Large ", " XL "],
   },
- 
+
   {
     style: "The Johna Wayne",
     forWhom: "Women",
@@ -280,12 +280,14 @@ const bioCardArray = [
       "User generated content in real-time will have multiple touchpoints for offshoring.",
   },
 ];
-              // ALL CLICKS AND SINGLE PAGE FUNCTION CALLS
+// ALL CLICKS AND SINGLE PAGE FUNCTION CALLS
 const buttonEvents = () => {
   if (document.getElementById("shop")) {
+    document.querySelector(".shops-link").style.backgroundColor = '#B09182';
     renderShopCards(shopCardsArray);
 
     renderShopFooter();
+
     document
       .getElementById("searchBarInput")
       .addEventListener("keyup", searchFunction);
@@ -303,16 +305,19 @@ const buttonEvents = () => {
     renderReviews();
     renderReviewForm();
     renderFooter();
+    document.querySelector(".reviews-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("bioPage")) {
     renderBioCards();
     renderFooter();
+    document.querySelector(".bios-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("homePage")) {
     renderFooter();
     onSaleCarosel();
+    document.querySelector(".index-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
   if (document.getElementById("dropdown")) {
@@ -331,6 +336,7 @@ const buttonEvents = () => {
   }
   if (document.getElementById("orderPage")) {
     renderFooter();
+    document.querySelector(".order-link").style.backgroundColor = '#B09182';
     document.getElementById("footerInput").addEventListener("click", alertUser);
   }
 };
@@ -347,7 +353,7 @@ const alertUser = (e) => {
   }
 };
 
-                // HOMEPAGE CAROSEL
+// HOMEPAGE CAROSEL
 const onSaleCarosel = () => {
   let domString = "";
   let saleBoolean = true
@@ -355,8 +361,8 @@ const onSaleCarosel = () => {
                   <div class="carousel-inner">`;
 
   for (let i = 0; i < shopCardsArray.length; i++) {
-    
-    if(shopCardsArray[i].onSale && saleBoolean) {
+
+    if (shopCardsArray[i].onSale && saleBoolean) {
       domString += `<div class="carousel-item active">
                       <img class="d-block w-100" src="${shopCardsArray[i].imageUrl}" alt="First slide">
                     </div>`;
@@ -368,7 +374,7 @@ const onSaleCarosel = () => {
                     </div>`;
     }
 
-} 
+  }
 
   domString += `</div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -382,7 +388,7 @@ const onSaleCarosel = () => {
 </div>`;
   printToDom("onSale", domString);
 };
-                  // SHOP PAGE
+// SHOP PAGE
 const renderShopCards = (array) => {
   let domString = "";
   for (let i = 0; i < array.length; i++) {
@@ -510,7 +516,7 @@ const renderAllCards = () => {
   }
   printToDom("shopCardsSection", domString);
 };
-            //  REVIEW SECTION
+//  REVIEW SECTION
 const reviewsArray = [
   {
     name: "John Wayne",
@@ -578,41 +584,49 @@ const renderReviewForm = () => {
     `;
 
   reviewsFormTemplate = `
-  <form id="reviewForm" class="reviewsInput">
-  <label for="avatar">Please choose an avatar:</label>
-  <div class="form-check reviewsInput">
-  ${avatarInputs}
-  </div>
   
-  <div class="form-group reviewsInput">
-    <label for="name">Name</label>
-    <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
+    <form id="reviewForm" class="reviewsInput">
+    <h5 class="reviews-titles">Give your own review!</h5>
+    <h6 class="reviews-titles">To start, choose an avatar:</h6>
+    <div class="form-check reviewsInput">
+    ${avatarInputs}
+    </div>
+    <div class="form-group reviewsInput">
+    <h6 class="reviews-titles">Now we'll just be requesting a little information...</h6></label>
+    </div>
+    <div class="form-group reviewsInput">
+      <label for="name">Name</label>
+      <input type="text" class="form-control input-group" id="name" aria-describedby="name" placeholder="Enter Name">
+    </div>
+    
+    <div class="form-group reviewsInput">
+      <label for="product">Product Name</label>
+      <input type="text" class="form-control" id="product" placeholder="Corduroys">
+    </div>
+    <div class="form-group reviewsInput">
+    <label for="exampleFormControlSelect2">Give a star rating</label>
+    <select class="form-control" id="numberOfStars">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  
-  <div class="form-group reviewsInput">
-    <label for="product">Product Name</label>
-    <input type="text" class="form-control" id="product" placeholder="Corduroys">
+  <div class="container">
+    <span id="rateMe4"  class="feedback"></span>
   </div>
   <div class="form-group reviewsInput">
-  <label for="exampleFormControlSelect2">Give a star rating</label>
-  <select class="form-control" id="numberOfStars">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-</div>
-<div class="form-group reviewsInput">
-  <label for="exampleFormControlTextarea1">Comment</label>
-  <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
-</div>
-<div class="form-group reviewsInput">
-<button type="submit" id="submit" class="btn btn-primary">Submit</button>
-</div>
-<div class="shim"></div>
-</form>
-  `;
+    <label for="exampleFormControlTextarea1">Comment</label>
+    <textarea class="form-control" id="comment" rows="3" placeholder="Describe your experience:"></textarea>
+  </div>
+  <div class="form-group reviewsInput">
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="shim"></div>
+  </form>
+    `;
+
 
   printToDom("reviewFormDiv", reviewsFormTemplate);
   document.getElementById("submit").addEventListener("click", getReviewInfo);
@@ -667,31 +681,49 @@ const getReviewInfo = (e) => {
     renderReviews();
   }
 
- 
+
 };
 
 const renderReviews = () => {
+  let starString = "";
   let domString = "";
+
   for (let i = 0; i < reviewsArray.length; i++) {
+    starString += "";
+    for (let point = 1; point <= reviewsArray[i].rating; point++) {
+
+      if (point <= reviewsArray[i].rating) {
+        starString += `<span class="fa fa-star checked"></span>`;
+      } else {
+        starString += `<span class="fa fa-star"></span>`;
+      }
+    }
     domString += `<div class="card" style="width: 14rem;">
     <img src="images/reviewAvatars/${reviewsArray[i].avatar}" class="card-img-top" alt="">
     <div class="card-body">
-      <h3 class="card-title">${reviewsArray[i].name}</h3>
-      <p class="card-text">${reviewsArray[i].product}</p>
-      <h5 class="card-price">${reviewsArray[i].comment}</h5>
-      <div class="row lead">
-        <div id="stars" class="starrr"></div>
-        You gave a rating of <span id="count">${reviewsArray[i].rating}</span> star(s)
+    <div class="name-product-holder">
+      <h4 class="card-title">${reviewsArray[i].name}</h4>
+      <div class="card-text">${reviewsArray[i].product}</div>
+    </div>
+      <div class="rating-container">
+      <h5 class="review-comment">${reviewsArray[i].comment}</h5>
+      <div class="star-container">
+      <div id="rating-title">Rating:</div>
+      <div id="stars" class="starrr">${starString}</div>
       </div>
+        </div>
     </div>
   </div>
   
   `;
+    starString = '';
   }
   printToDom("reviewsSection", domString);
+
 };
 
-              // BIO PAGE
+
+// BIO PAGE
 const renderBioCards = () => {
   let domString = "";
   for (let i = 0; i < bioCardArray.length; i++) {
@@ -706,7 +738,7 @@ const renderBioCards = () => {
   }
   printToDom("bioCards", domString);
 };
-            // SHOP FUNCTIONALITY
+// SHOP FUNCTIONALITY
 const searchFunction = (e) => {
   const searchId = e.target.value.toLowerCase();
   const filteredPants = shopCardsArray.filter((shopCardsArray) => {
