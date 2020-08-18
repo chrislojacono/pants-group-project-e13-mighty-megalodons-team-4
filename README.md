@@ -5,7 +5,10 @@ This was a collaborative effort to design a faux page displaying/selling a style
 The motivation behind this project was mainly to focus on the process of working in a group setting and planning appropriately for a big project. We wanted to make sure every step was planned out and that we worked together to achieve our end goal. We wanted to incorporate the use of wireframes, github project boards and the process of assigning and completing issue tickets.
 
 ## Build status
-MVP complete, Just styling at this point
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e15a5df1-6251-40be-8ac6-420263835c17/deploy-status)](https://app.netlify.com/sites/extraordinarycorduroy/deploys)
+
+## Launched Site
+https://extraordinarycorduroy.netlify.app/
 
 ## Code Style
 Vanilla Javascript ES6, HTML5, CSS3
@@ -59,3 +62,5 @@ const captureNewProduct = (e) => {
 [Stephen Freeny](https://github.com/Srfreeny)
 [Will Kotheimer](https://github.com/willkotheimer)
 [Summer Duke](https://github.com/esrduke95)
+
+
